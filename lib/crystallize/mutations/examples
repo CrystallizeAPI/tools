@@ -1,0 +1,116 @@
+mutation createProduct {
+  product {
+    create(
+      language: "en"
+      input: {
+        name: "Peugeot e-2021"
+        shapeId: "5e74ad17734ba35f9f1eeead"
+        tenantId: "5e7342e10fd232f27ef647b6"
+        vatTypeId: "5e736115734ba399e01eee04"
+        tree: { parentId: "5e74b034734ba3745f1eeeb6", position: 1 }
+        variants: [
+          {
+            name: "Peugeot e-208 FlashYellow"
+            sku: "20194916711"
+            price: 29990
+            stock: 10
+            isDefault: true
+            attributes: [{ attribute: "Stedkode", value: "817" }]
+          }
+          {
+            name: "Peugeot e-208 FlashYellow"
+            sku: "20194916228"
+            price: 29990
+            stock: 10
+            isDefault: false
+            attributes: [{ attribute: "Stedkode", value: "817" }]
+          }
+        ]
+        topicIds: ["5e735c40734ba32ce41eedba", "5e735d52734ba3ecb31eedc5"]
+        components: [
+          {
+            componentId: "bilspesifikasjon"
+            itemRelations: { itemIds: ["5e74b0a80fd232090ff648b3"] }
+          }
+          {
+            componentId: "prisspesifikasjon"
+            propertiesTable: {
+              sections: [
+                {
+                  title: "Pris"
+                  properties: [
+                    { key: "Veil listepris", value: "29 990" }
+                    { key: "Kampanje rabatt", value: "12 000" }
+                    { key: "Kampanje kjøpspris", value: "17 990" }
+                    { key: "Importør støtte", value: "18 000" }
+                    {
+                      key: "Kampanjekode"
+                      value: "#PromtionId:KJOP20;#PromtionId:NFTRLB;#PromtionId:FKSXWY"
+                    }
+                    { key: "Kampanje gruppekode", value: "208GTL180A V2" }
+                  ]
+                }
+              ]
+            }
+          }
+          {
+            componentId: "accessories"
+            itemRelations: {
+              itemIds: ["5e78be51734ba337941eef82", "5e78be5b734ba364c61eef83"]
+            }
+          }
+        ]
+      }
+    ) {
+      id
+    }
+  }
+}
+
+mutation creatTopic {
+  topic {
+    create(
+      language: "en"
+      input: {
+        tenantId: "5e7342e10fd232f27ef647b6"
+        name: "Example-Origin"
+        children: [
+          {
+            name: "Germany"
+            children: [{ name: "Berlin" }, { name: "Munich" }]
+          }
+          { name: "France", children: [{ name: "Paris" }] }
+        ]
+      }
+    ) {
+      id
+    }
+  }
+}
+
+mutation createFolder {
+  folder {
+    create(
+      language: "en"
+      input: {
+        tenantId: "5e7342e10fd232f27ef647b6"
+        name: "Example-Folder"
+        shapeId: "5e7342e10fd232f4c9f647b9"
+        tree: { parentId: "5e7342e10fd23255fcf647b7", position: 1 }
+      }
+    ) {
+      id
+    }
+  }
+}
+
+query getAllTopics {
+  topics(tenantId: "5e7342e10fd232f27ef647b6", language: "en") {
+    id
+    name
+    descendants {
+      id
+      name
+    }
+  }
+}

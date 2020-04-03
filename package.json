@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "NODE_ENV=test mocha -r esm \"tests/unit/**/*.js\"",
+    "test:integration": "NODE_ENV=test mocha -r esm \"tests/integration/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,14 @@
     "sinon": "^9.0.1"
   },
   "dependencies": {
-    "esm": "^3.2.25"
+    "cockatiel": "^0.1.5",
+    "dotenv": "^8.2.0",
+    "download": "^8.0.0",
+    "esm": "^3.2.25",
+    "form-data": "^3.0.0",
+    "magento-api-rest": "^1.1.1",
+    "node-fetch": "^2.6.0",
+    "slug": "^2.1.1",
+    "xml-js": "^1.6.11"
   }
 }
