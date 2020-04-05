@@ -22,7 +22,7 @@ async function importCatalogue (mageCrystIdmap, topicCategories) {
   return Promise.resolve()
 }
 
-export default async (magentoTopicCategories, injections = {}) => {
+async function main (magentoTopicCategories, injections = {}) {
   const {
     getClient = getMagentoClient,
     getCategories = queryCategories,
@@ -42,7 +42,6 @@ export default async (magentoTopicCategories, injections = {}) => {
       categories,
       magentoTopicCategories
     )
-
     console.log('Mapping to Crystallize')
     const crystallizeFolders = mapToCrystallizeFolders(filteredCategories)
 
@@ -52,8 +51,8 @@ export default async (magentoTopicCategories, injections = {}) => {
     )
 
     console.log('Creating Topics')
-    const topicCategories = categories.filter(
-      c => !magentoTopicCategories.includes(c.name)
+    const topicCategories = categories.filter(c =>
+      magentoTopicCategories.includes(c.name)
     )
     await createCrystallizeTopics(topicCategories)
 
@@ -64,3 +63,5 @@ export default async (magentoTopicCategories, injections = {}) => {
     return Promise.reject(error)
   }
 }
+
+export { main }

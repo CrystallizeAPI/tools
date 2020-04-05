@@ -49,6 +49,12 @@ describe('Product map', () => {
       ])
   })
 
+  it('handles if description is null', () => {
+    const result = mapper.getParagraphsFromHtml()
+
+    expect(result).to.be.a('null')
+  })
+
   it('handles categories that are not topics, by not adding them ', () => {
     const dummyProductCategories = ['5']
 

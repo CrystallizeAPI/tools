@@ -124,7 +124,7 @@ const dummyProduct = {
   custom_attributes: [
     {
       attribute_code: 'description',
-      value: 'test description'
+      value: '<p>test description</p>'
     },
     {
       attribute_code: 'meta_title',
