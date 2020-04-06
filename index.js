@@ -1,3 +1,6 @@
-require = require('esm')(module /*, options*/)
+require('dotenv').config()
+require('esm')(module /*, options*/)
 
-module.exports = require('./main.js')
+const importer = require('./main.js')
+
+importer.main(['Toys'])
