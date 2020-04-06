@@ -11,6 +11,7 @@ import {
 
 async function importCatalogue (mageCrystIdmap, topicCategories) {
   const topics = await getCrystallizeTopics()
+
   for (const category of mageCrystIdmap) {
     await syncSingleCategory(
       category.magentoFolderId,

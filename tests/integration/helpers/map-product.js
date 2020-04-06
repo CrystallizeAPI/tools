@@ -71,9 +71,9 @@ describe('Product map', () => {
     const result = mapper.associateVariants(dummyProducts)
 
     expect(result[0].variants).and.have.deep.members([
-      { sku: 'DUMMY_01', price: 2 },
-      { sku: 'DUMMY_02', price: 3 },
-      { sku: 'DUMMY_03', price: 4 }
+      { sku: 'DUMMY-01', price: 2 },
+      { sku: 'DUMMY-02', price: 3 },
+      { sku: 'DUMMY-03', price: 4 }
     ])
   })
 
