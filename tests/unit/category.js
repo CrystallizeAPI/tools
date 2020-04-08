@@ -28,7 +28,7 @@ describe('crystallize', () => {
     const getCategoryProducts = sinon.fake.resolves()
     const groupSKUs = sinon.fake.returns([''])
 
-    await syncSingleCategory(null, null, null, null, {
+    await syncSingleCategory(null, null, null, null, null, {
       createProduct,
       getCategoryProducts,
       client: null,
