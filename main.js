@@ -29,7 +29,7 @@ async function importCatalogue (
   return Promise.resolve()
 }
 
-async function main (magentoTopicCategories, injections = {}) {
+async function main (magentoTopicCategories = [], injections = {}) {
   const {
     getClient = getMagentoClient,
     getCategories = queryCategories,
