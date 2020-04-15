@@ -10,6 +10,15 @@ describe('main', () => {
     const createCrystallizeFolderStructure = sinon.fake.resolves()
     const createCrystallizeTopics = sinon.fake.resolves()
     const importCrystallizeCatalogue = sinon.fake.resolves()
+    const createCrystallizeGenericShape = sinon.fake.resolves({
+      data: {
+        shape: {
+          create: {
+            id: 'test'
+          }
+        }
+      }
+    })
 
     await main([], {
       getClient,
@@ -18,7 +27,8 @@ describe('main', () => {
       mapToCrystallizeFolders,
       createCrystallizeFolderStructure,
       createCrystallizeTopics,
-      importCrystallizeCatalogue
+      importCrystallizeCatalogue,
+      createCrystallizeGenericShape
     })
     sinon.assert.calledOnce(getClient)
     sinon.assert.calledOnce(getCategories)
@@ -27,5 +37,6 @@ describe('main', () => {
     sinon.assert.calledOnce(createCrystallizeFolderStructure)
     sinon.assert.calledOnce(createCrystallizeTopics)
     sinon.assert.calledOnce(importCrystallizeCatalogue)
+    sinon.assert.calledOnce(createCrystallizeGenericShape)
   })
 })

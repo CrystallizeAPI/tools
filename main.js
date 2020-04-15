@@ -2,6 +2,7 @@ import { getClient as getMagentoClient, queryCategories } from './lib/magento'
 import mapToFolders from './lib/helpers/map-folder'
 import flatten from './lib/helpers/flatten-magento-categories'
 import filterOutTagCategories from './lib/helpers/category-filter'
+import createCrystallizeShape from './lib/crystallize/helpers/create-shape'
 import { syncSingleCategory } from './lib/category'
 import {
   createFolderStructure,
@@ -9,7 +10,11 @@ import {
   getCrystallizeTopics
 } from './lib/crystallize'
 
-async function importCatalogue (mageCrystIdmap, topicCategories) {
+async function importCatalogue (
+  mageCrystIdmap,
+  topicCategories,
+  crystallizeShapeId
+) {
   const topics = await getCrystallizeTopics()
 
   for (const category of mageCrystIdmap) {
@@ -17,13 +22,14 @@ async function importCatalogue (mageCrystIdmap, topicCategories) {
       category.magentoFolderId,
       category.crystallizeFolderId,
       topicCategories,
-      topics
+      topics,
+      crystallizeShapeId
     )
   }
   return Promise.resolve()
 }
 
-async function main (magentoTopicCategories, injections = {}) {
+async function main (magentoTopicCategories = [], injections = {}) {
   const {
     getClient = getMagentoClient,
     getCategories = queryCategories,
@@ -31,7 +37,8 @@ async function main (magentoTopicCategories, injections = {}) {
     mapToCrystallizeFolders = mapToFolders,
     createCrystallizeFolderStructure = createFolderStructure,
     createCrystallizeTopics = createTopics,
-    importCrystallizeCatalogue = importCatalogue
+    importCrystallizeCatalogue = importCatalogue,
+    createCrystallizeGenericShape = createCrystallizeShape
   } = injections
 
   try {
@@ -57,8 +64,15 @@ async function main (magentoTopicCategories, injections = {}) {
     )
     await createCrystallizeTopics(topicCategories)
 
+    console.log('Create Crystallize generic Shape')
+    const { data } = await createCrystallizeGenericShape()
+
     console.log('Importing Catalogue')
-    return importCrystallizeCatalogue(mageCrystIdmap, flatten(categories))
+    return importCrystallizeCatalogue(
+      mageCrystIdmap,
+      flatten(categories),
+      data.shape.create.id
+    )
   } catch (error) {
     console.log(error)
     return Promise.reject(error)
