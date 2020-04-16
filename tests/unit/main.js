@@ -1,7 +1,7 @@
-import { main } from '../../main'
+import { catalogueImport, singleProductImport } from '../../main'
 import sinon from 'sinon'
 
-describe('main', () => {
+describe('Import functions', () => {
   it('Syncs the Catalogue', async () => {
     const getClient = sinon.fake.returns()
     const getCategories = sinon.fake.resolves([''])
@@ -20,7 +20,7 @@ describe('main', () => {
       }
     })
 
-    await main([], {
+    await catalogueImport([], {
       getClient,
       getCategories,
       filterCategories,
@@ -38,5 +38,35 @@ describe('main', () => {
     sinon.assert.calledOnce(createCrystallizeTopics)
     sinon.assert.calledOnce(importCrystallizeCatalogue)
     sinon.assert.calledOnce(createCrystallizeGenericShape)
+  })
+
+  it('Syncs a single product', async () => {
+    const queryMagentoProduct = sinon.fake.resolves([''])
+    const mapToCrystallizeProducts = sinon.fake.resolves([''])
+    const createCrystallizeProducts = sinon.fake.resolves([''])
+    const storeCrystallizeProductImages = sinon.fake.resolves([''])
+    const createCrystallizeGenericShape = sinon.fake.resolves({
+      data: {
+        shape: {
+          create: {
+            id: 'test'
+          }
+        }
+      }
+    })
+
+    await singleProductImport(['Test'], [], {
+      createCrystallizeGenericShape,
+      queryMagentoProduct,
+      mapToCrystallizeProducts,
+      createCrystallizeProducts,
+      storeCrystallizeProductImages
+    })
+
+    sinon.assert.calledOnce(createCrystallizeGenericShape)
+    sinon.assert.calledOnce(queryMagentoProduct)
+    sinon.assert.calledOnce(mapToCrystallizeProducts)
+    sinon.assert.calledOnce(createCrystallizeProducts)
+    sinon.assert.calledOnce(storeCrystallizeProductImages)
   })
 })

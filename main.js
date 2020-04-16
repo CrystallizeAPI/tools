@@ -1,5 +1,10 @@
-import { getClient as getMagentoClient, queryCategories } from './lib/magento'
+import {
+  getClient as getMagentoClient,
+  queryCategories,
+  queryProduct
+} from './lib/magento'
 import mapToFolders from './lib/helpers/map-folder'
+import mapToProducts from './lib/helpers/map-product'
 import flatten from './lib/helpers/flatten-magento-categories'
 import filterOutTagCategories from './lib/helpers/category-filter'
 import createCrystallizeShape from './lib/crystallize/helpers/create-shape'
@@ -7,9 +12,11 @@ import { syncSingleCategory } from './lib/category'
 import {
   createFolderStructure,
   createTopics,
+  createProducts,
+  storeProductImages,
   getCrystallizeTopics
 } from './lib/crystallize'
-
+import { CRYSTALLIZE_ROOT_ITEM_ID } from './lib/config'
 async function importCatalogue (
   mageCrystIdmap,
   topicCategories,
@@ -29,7 +36,10 @@ async function importCatalogue (
   return Promise.resolve()
 }
 
-async function main (magentoTopicCategories = [], injections = {}) {
+export async function catalogueImport (
+  magentoTopicCategories = [],
+  injections = {}
+) {
   const {
     getClient = getMagentoClient,
     getCategories = queryCategories,
@@ -79,4 +89,50 @@ async function main (magentoTopicCategories = [], injections = {}) {
   }
 }
 
-export { main }
+export async function singleProductImport (
+  skus,
+  magentoTopicCategories = [],
+  injections = {}
+) {
+  const {
+    createCrystallizeGenericShape = createCrystallizeShape,
+    queryMagentoProduct = queryProduct,
+    mapToCrystallizeProducts = mapToProducts,
+    createCrystallizeProducts = createProducts,
+    storeCrystallizeProductImages = storeProductImages
+  } = injections
+
+  if (!skus) {
+    return Promise.reject('SKU String or Array required')
+  }
+  if (typeof skus !== 'object') skus = [skus]
+
+  try {
+    console.log('Create Crystallize generic Shape')
+    const { data } = await createCrystallizeGenericShape()
+    // Fetch Product information from Magento
+    const magentoProducts = []
+    for (const sku of skus) {
+      const magentoProduct = await queryMagentoProduct(sku)
+      magentoProducts.push(magentoProduct)
+    }
+    const crystallizeProducts = await mapToCrystallizeProducts(
+      magentoProducts,
+      CRYSTALLIZE_ROOT_ITEM_ID,
+      magentoTopicCategories,
+      [],
+      data.shape.create.id
+    )
+
+    console.log('Generating Category Products')
+    await createCrystallizeProducts(crystallizeProducts)
+
+    console.log('\t\t\tUploading Images')
+    for (const sku of skus) {
+      await storeCrystallizeProductImages(sku)
+    }
+  } catch (error) {
+    console.log(error)
+    return Promise.reject(error)
+  }
+}
