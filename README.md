@@ -6,7 +6,7 @@ This script allows easier transition from Magento to [Crystallize](https://cryst
 
 Crystallize is a fast GraphQL based [PIM](https://crystallize.com/product/product-information-management) to build [headless eCommerce](https://crystallize.com/product) solutions. If you are migrating from Magento to Crystallize you should check out the [Open Source React eCommerce Boilerplate](https://crystallize.com/learn/open-source/boilerplates/react-nextjs).
 
-If you stumbled upon this script check out the concepts of how to build [fast React eCommerce](https://crystallize.com/developers) using Crystalize.
+If you stumbled upon this script check out the concepts of how to build [fast React eCommerce](https://crystallize.com/developers) using Crystallize.
 
 ### Modifications:
 
