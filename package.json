@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node -r esm ./index.js",
     "import": "node -r esm ./index.js",
-    "single": "MODE=SINGLE SKU=gb node -r esm ./index.js",
+    "single": "MODE=SINGLE node -r esm ./index.js",
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "NODE_ENV=test mocha -r esm \"tests/unit/**/*.js\"",
     "test:integration": "NODE_ENV=test mocha -r esm \"tests/integration/**/*.js\""
