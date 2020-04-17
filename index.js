@@ -3,4 +3,12 @@ require('esm')(module /*, options*/)
 
 const importer = require('./main.js')
 
-importer.main(['Toys'])
+function runImport () {
+  const { MODE, SKU } = process.env
+  if (MODE === 'SINGLE') importer.singleProductImport(SKU)
+  else {
+    importer.catalogueImport(['Toys'])
+  }
+}
+
+runImport()
