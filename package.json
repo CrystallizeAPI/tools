@@ -15,7 +15,12 @@
     "type": "git",
     "url": "git+https://github.com/CrystallizeAPI/crystallize-magento-import.git"
   },
-  "keywords": ["magento", "crystallize", "import", "integration"],
+  "keywords": [
+    "magento",
+    "crystallize",
+    "import",
+    "integration"
+  ],
   "author": "Stavros Sotiropoulos",
   "license": "MIT",
   "bugs": {
@@ -25,18 +30,18 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^7.1.1",
-    "sinon": "^9.0.1"
+    "mocha": "^7.2.0",
+    "sinon": "^9.2.3"
   },
   "dependencies": {
     "cockatiel": "^0.1.5",
     "dotenv": "^8.2.0",
     "download": "^8.0.0",
     "esm": "^3.2.25",
-    "file-type": "^14.1.4",
+    "file-type": "^14.7.1",
     "form-data": "^3.0.0",
-    "magento-api-rest": "^1.1.1",
-    "node-fetch": "^2.6.0",
+    "magento-api-rest": "^2.0.4",
+    "node-fetch": "^2.6.1",
     "parse5": "^5.1.1",
     "slug": "^2.1.1",
     "xml-js": "^1.6.11"

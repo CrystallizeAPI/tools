@@ -6,28 +6,30 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
-"@sinonjs/commons@^1", "@sinonjs/commons@^1.6.0", "@sinonjs/commons@^1.7.0":
+"@sinonjs/commons@^1.6.0", "@sinonjs/commons@^1.7.0":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.7.1.tgz#da5fd19a5f71177a53778073978873964f49acf1"
   dependencies:
     type-detect "4.0.8"
 
-"@sinonjs/fake-timers@^6.0.0":
+"@sinonjs/commons@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.1.tgz#e7df00f98a203324f6dc7cc606cad9d4a8ab2217"
+  integrity sha512-892K+kWUUi3cl+LlqEWIDrhvLgdL79tECi8JZUyq6IviKy/DNhuzCRlbHUjxK89f4ypPMMaFnFuR9Ie6DoIMsw==
+  dependencies:
+    type-detect "4.0.8"
+
+"@sinonjs/fake-timers@^6.0.0", "@sinonjs/fake-timers@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-6.0.1.tgz#293674fccb3262ac782c7aadfdeca86b10c75c40"
+  integrity sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sinonjs/formatio@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@sinonjs/formatio/-/formatio-5.0.1.tgz#f13e713cb3313b1ab965901b01b0828ea6b77089"
-  dependencies:
-    "@sinonjs/commons" "^1"
-    "@sinonjs/samsam" "^5.0.2"
-
-"@sinonjs/samsam@^5.0.2", "@sinonjs/samsam@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-5.0.3.tgz#86f21bdb3d52480faf0892a480c9906aa5a52938"
+"@sinonjs/samsam@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-5.3.0.tgz#1d2f0743dc54bf13fe9d508baefacdffa25d4329"
+  integrity sha512-hXpcfx3aq+ETVBwPlRFICld5EnrkexXuXDwqUNhDdr5L8VjvMeSRwyOa0qL7XFmR+jVWR4rUZtnxlG7RX72sBg==
   dependencies:
     "@sinonjs/commons" "^1.6.0"
     lodash.get "^4.4.2"
@@ -90,11 +92,12 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-axios@^0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
-    follow-redirects "1.5.10"
+    follow-redirects "^1.10.0"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -277,18 +280,6 @@ debug@3.2.6:
   dependencies:
     ms "^2.1.1"
 
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  dependencies:
-    ms "2.0.0"
-
-debug@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
-  dependencies:
-    ms "^2.1.1"
-
 decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
@@ -468,12 +459,13 @@ file-type@^11.1.0:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-11.1.0.tgz#93780f3fed98b599755d846b99a1617a2ad063b8"
 
-file-type@^14.1.4:
-  version "14.1.4"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-14.1.4.tgz#3ac109f2ea9e8f5573d000ec0c6bcdff07fd46de"
+file-type@^14.7.1:
+  version "14.7.1"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-14.7.1.tgz#f748732b3e70478bff530e1cf0ec2fe33608b1bb"
+  integrity sha512-sXAMgFk67fQLcetXustxfKX+PZgHIUFn96Xld9uH8aXPdX3xOp0/jg9OdouVTvQrf7mrn+wAa4jN/y9fUOOiRA==
   dependencies:
     readable-web-to-node-stream "^2.0.0"
-    strtok3 "^6.0.0"
+    strtok3 "^6.0.3"
     token-types "^2.0.0"
     typedarray-to-buffer "^3.1.5"
 
@@ -523,11 +515,10 @@ flat@^4.1.0:
   dependencies:
     is-buffer "~2.0.3"
 
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  dependencies:
-    debug "=3.1.0"
+follow-redirects@^1.10.0:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
+  integrity sha512-SSG5xmZh1mkPGyKzjZP8zLjltIfpW32Y5QpdNJyjcfGxK3qo3NDDkZOZSFiGn1A6SclQxY9GzEwAHQ3dmYRWpg==
 
 form-data@^3.0.0:
   version "3.0.0"
@@ -835,11 +826,12 @@ lowercase-keys@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
 
-magento-api-rest@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/magento-api-rest/-/magento-api-rest-1.1.1.tgz#e6cf2a03714f141ebc4ec1c29fc9bc2a55777ad7"
+magento-api-rest@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/magento-api-rest/-/magento-api-rest-2.0.4.tgz#1db727f199273f22df53fec4af4e87ed4beee45a"
+  integrity sha512-8PPXlxEqOrEHp7jKFiciKg3WkZHiLw2pgo/8B+RaEPdRg43uQY5qiseWexLf9qfwVrskoQZbmXnKaPTFxlBMHA==
   dependencies:
-    axios "^0.19.2"
+    axios "^0.21.1"
     oauth-1.0a "^2.2.6"
 
 make-dir@^1.0.0:
@@ -879,15 +871,17 @@ minimist@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
 
-mkdirp@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.3.tgz#5a514b7179259287952881e94410ec5465659f8c"
+mkdirp@0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
+  integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
 
-mocha@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-7.1.1.tgz#89fbb30d09429845b1bb893a830bf5771049a441"
+mocha@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-7.2.0.tgz#01cc227b00d875ab1eed03a75106689cfed5a604"
+  integrity sha512-O9CIypScywTVpNaRrCAgoUnJgozpIofjKUYmJhiCIJMiuYnLI6otcb1/kpW9/n/tJODHGZ7i8aLQoDVsMtOKQQ==
   dependencies:
     ansi-colors "3.2.3"
     browser-stdout "1.3.1"
@@ -902,7 +896,7 @@ mocha@^7.1.1:
     js-yaml "3.13.1"
     log-symbols "3.0.0"
     minimatch "3.0.4"
-    mkdirp "0.5.3"
+    mkdirp "0.5.5"
     ms "2.1.1"
     node-environment-flags "1.0.6"
     object.assign "4.1.0"
@@ -914,10 +908,6 @@ mocha@^7.1.1:
     yargs-parser "13.1.2"
     yargs-unparser "1.6.0"
 
-ms@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
-
 ms@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
@@ -926,9 +916,10 @@ ms@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
 
-nise@^4.0.1:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/nise/-/nise-4.0.3.tgz#9f79ff02fa002ed5ffbc538ad58518fa011dc913"
+nise@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/nise/-/nise-4.0.4.tgz#d73dea3e5731e6561992b8f570be9e363c4512dd"
+  integrity sha512-bTTRUNlemx6deJa+ZyoCUTRvH3liK5+N6VQZ4NIw90AgDXY6iPnsqplNFf6STcj+ePk0H/xqxnP75Lr0J0Fq3A==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
     "@sinonjs/fake-timers" "^6.0.0"
@@ -943,9 +934,10 @@ node-environment-flags@1.0.6:
     object.getownpropertydescriptors "^2.0.3"
     semver "^5.7.0"
 
-node-fetch@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+node-fetch@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
@@ -962,6 +954,7 @@ normalize-url@2.0.1:
 oauth-1.0a@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/oauth-1.0a/-/oauth-1.0a-2.2.6.tgz#eadbccdb3bceea412d24586e6f39b2b412f0e491"
+  integrity sha512-6bkxv3N4Gu5lty4viIcIAnq5GbxECviMBeKR3WX/q87SPQ8E8aursPZUtsXDnxCs787af09WPRBLqYrf/lwoYQ==
 
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
@@ -1059,9 +1052,10 @@ pathval@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pathval/-/pathval-1.1.0.tgz#b942e6d4bde653005ef6b71361def8727d0645e0"
 
-peek-readable@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/peek-readable/-/peek-readable-3.1.0.tgz#250b08b7de09db8573d7fd8ea475215bbff14348"
+peek-readable@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/peek-readable/-/peek-readable-3.1.2.tgz#5edab75fa130e21ca290c444892faa0c208a78f0"
+  integrity sha512-aJrwgM+VdX8VoIz5EE1Mg56a3g3s93wsV0bvCDQgvFNfnTr++Ij5eQWIz9VP8QyuL9+jFHR7iNPalrc1GvK2WA==
 
 pend@~1.2.0:
   version "1.2.0"
@@ -1178,16 +1172,16 @@ set-blocking@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
 
-sinon@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.0.1.tgz#dbb18f7d8f5835bcf91578089c0a97b2fffdd73b"
+sinon@^9.2.3:
+  version "9.2.3"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.2.3.tgz#f68ce414e843e2fd638703043c97f260697caa52"
+  integrity sha512-m+DyAWvqVHZtjnjX/nuShasykFeiZ+nPuEfD4G3gpvKGkXRhkF/6NSt2qN2FjZhfrcHXFzUzI+NLnk+42fnLEw==
   dependencies:
-    "@sinonjs/commons" "^1.7.0"
-    "@sinonjs/fake-timers" "^6.0.0"
-    "@sinonjs/formatio" "^5.0.1"
-    "@sinonjs/samsam" "^5.0.3"
+    "@sinonjs/commons" "^1.8.1"
+    "@sinonjs/fake-timers" "^6.0.1"
+    "@sinonjs/samsam" "^5.3.0"
     diff "^4.0.2"
-    nise "^4.0.1"
+    nise "^4.0.4"
     supports-color "^7.1.0"
 
 slug@^2.1.1:
@@ -1301,14 +1295,14 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-strtok3@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-6.0.0.tgz#d6b900863daeacfe6c1724c6e7bb36d7a58e83c8"
+strtok3@^6.0.3:
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/strtok3/-/strtok3-6.0.7.tgz#f8e57027b96b4dfb76fc7361f34b283c5933a832"
+  integrity sha512-D9O/aefUl/JLjfA//GQ0JX+nJMHiB5mkUQWWdjMnK+mB6PpzxDpnpajkDxuR18zYHvfXV44kDYrhT4UAeHRceg==
   dependencies:
     "@tokenizer/token" "^0.1.1"
     "@types/debug" "^4.1.5"
-    debug "^4.1.1"
-    peek-readable "^3.1.0"
+    peek-readable "^3.1.2"
 
 supports-color@6.0.0:
   version "6.0.0"
