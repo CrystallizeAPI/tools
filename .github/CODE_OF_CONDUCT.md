@@ -1,4 +1,4 @@
-# Crystallize Boilerplates
+# Crystallize Tools
 
 This code of conduct outlines our expectations for participants within community. Anyone who violates this code of conduct may be banned from contributing here.
 

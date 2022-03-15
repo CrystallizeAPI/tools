@@ -13,7 +13,7 @@ All contributions will happen here:
 
 ## Managed Repositories
 
-| Bundles                                                                        | Licence(s) |
+| Tools                                                                          | Licence(s) |
 | ------------------------------------------------------------------------------ | ---------- |
 | [Shopify Migrator](https://github.com/CrystallizeAPI/shopify-migration-script) | ![MIT]     |
 
