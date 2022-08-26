@@ -1,9 +1,13 @@
 {
-  "type": "oss-monorepository",
-  "many-repositories": {
-    "shopify-migrator": {
-      "name": "Shopify Migrator",
-      "git": "git@github.com:CrystallizeAPI/shopify-migration-script.git"
+    "type": "oss-monorepository",
+    "many-repositories": {
+        "shopify-migrator": {
+            "name": "Shopify Migrator",
+            "git": "git@github.com:CrystallizeAPI/shopify-migration-script.git"
+        },
+        "magento-import": {
+            "name": "Magento Import",
+            "git": "git@github.com:CrystallizeAPI/crystallize-magento-import.git"
+        }
     }
-  }
 }

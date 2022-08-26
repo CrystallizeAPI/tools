@@ -16,6 +16,7 @@ All contributions will happen here:
 | Tools                                                                          | Licence(s) |
 | ------------------------------------------------------------------------------ | ---------- |
 | [Shopify Migrator](https://github.com/CrystallizeAPI/shopify-migration-script) | ![MIT]     |
+| [Magento Import](https://github.com/CrystallizeAPI/crystallize-magento-import) | ![MIT]     |
 
 ## Contributions
 
