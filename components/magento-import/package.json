@@ -1,0 +1,49 @@
+{
+  "name": "crystallize-magento-import",
+  "description": "Importing magento catalogue in Crystallize",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node -r esm ./index.js",
+    "import": "node -r esm ./index.js",
+    "single": "MODE=SINGLE node -r esm ./index.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "NODE_ENV=test mocha -r esm \"tests/unit/**/*.js\"",
+    "test:integration": "NODE_ENV=test mocha -r esm \"tests/integration/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrystallizeAPI/crystallize-magento-import.git"
+  },
+  "keywords": [
+    "magento",
+    "crystallize",
+    "import",
+    "integration"
+  ],
+  "author": "Stavros Sotiropoulos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrystallizeAPI/crystallize-magento-import/issues"
+  },
+  "homepage": "https://github.com/CrystallizeAPI/crystallize-magento-import#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^7.2.0",
+    "sinon": "^9.2.3"
+  },
+  "dependencies": {
+    "cockatiel": "^0.1.5",
+    "dotenv": "^8.2.0",
+    "download": "^8.0.0",
+    "esm": "^3.2.25",
+    "file-type": "^14.7.1",
+    "form-data": "^3.0.0",
+    "magento-api-rest": "^2.0.4",
+    "node-fetch": "^2.6.1",
+    "parse5": "^5.1.1",
+    "slug": "^2.1.1",
+    "xml-js": "^1.6.11"
+  }
+}
