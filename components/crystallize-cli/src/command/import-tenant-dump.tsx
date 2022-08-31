@@ -1,11 +1,6 @@
-import { output, styles } from "../core/ui-modules/console.js";
+import { output, styles } from '../core/utils/console.js';
 
 export default async (args: string[], flags: any): Promise<number> => {
-    try {
-        output.log("IMPORT");
-    } catch (error: any) {
-        output.error(styles.error(error.message));
-        return 1;
-    }
+    output.log('IMPORT');
     return 0;
-}
+};

@@ -1,25 +1,29 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
 import { mapToReducerActions, Reducer } from './reducer.js';
-import { Actions, Dispatch, State } from './types.js';
+import { Actions, Dispatch, InitialState, State } from './types.js';
 
 const StateContext = React.createContext<State | undefined>(undefined);
 const DispatchContext = React.createContext<Dispatch | undefined>(undefined);
 
-const initiateState = (): State => {
+const initiateState = (state: InitialState): State => {
     return {
-        tenant: undefined,
+        folder: state.folder,
+        tenant: state.tenant,
         boilerplate: undefined,
+        bootstrapTenant: state.bootstrapTenant,
         isWizardFullfilled: false,
         isDownloaded: false,
         isFullfilled: false,
+        messages: [],
     };
 };
 
 export const ContextProvider: FunctionComponent<{
     children: React.ReactNode;
-}> = ({ children }) => {
-    const [state, dispatch] = React.useReducer(Reducer, initiateState());
+    initialState: InitialState;
+}> = ({ children, initialState }) => {
+    const [state, dispatch] = React.useReducer(Reducer, initiateState(initialState));
     return (
         <StateContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>

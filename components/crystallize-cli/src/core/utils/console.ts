@@ -1,5 +1,5 @@
-import chalk from "chalk";
-import { colors } from "../../config/colors.js";
+import chalk from 'chalk';
+import { colors } from '../../config/colors.js';
 export const output = console;
 
 export const styles = {
@@ -14,9 +14,17 @@ ${chalk.gray('-'.repeat(75))}
         `;
     },
     success: (message: string) => {
-        return `${chalk.bgGreen(' '.repeat(75))}
+        return `
+${chalk.bgGreen(' '.repeat(75))}
 ${chalk.bgGreen('  ')}${chalk.black.bgGreen(message)}${chalk.bgGreen(' '.repeat(75 - message.length - 2))}
 ${chalk.bgGreen(' '.repeat(75))}
+        `;
+    },
+    failure: (message: string) => {
+        return `
+${chalk.bgRed(' '.repeat(75))}
+${chalk.bgRed('  ')}${chalk.black.bgRed(message)}${chalk.bgRed(' '.repeat(75 - message.length - 2))}
+${chalk.bgRed(' '.repeat(75))}
         `;
     },
     title: (message: string) => {
@@ -24,7 +32,7 @@ ${chalk.bgGreen(' '.repeat(75))}
 ==== ${message} ====
 ${chalk.gray('-'.repeat(10 + message.length))}`);
     },
+    highlight: (message: string) => {
+        return chalk.hex(colors.highlight)(message);
+    },
 };
-
-
-

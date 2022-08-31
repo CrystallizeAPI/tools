@@ -1,9 +1,8 @@
-
 import { Box, Newline, Text } from 'ink';
 import Link from 'ink-link';
-import { useEffect, useState } from 'react'
-import { Tip as TipType } from '../../types.js'
-import fetchTips, { staticTips } from '../use-cases/fetchTips.js'
+import { useEffect, useState } from 'react';
+import { Tip as TipType } from '../../types.js';
+import fetchTips, { staticTips } from '../use-cases/fetchTips.js';
 
 export const Tips: React.FC = () => {
     const [tips, setTips] = useState<TipType[]>(staticTips);
@@ -26,9 +25,9 @@ export const Tips: React.FC = () => {
     return (
         <>
             <Newline />
-            <Text>--------------------------------------</Text>
+            <Text dimColor>--------------------------------------</Text>
             <Box>
-                <Text italic>
+                <Text italic dimColor>
                     <Text>
                         {tip.type === 'blogPost' && `Catch up on our blog post: "${tip.title}"`}
                         {tip.type === 'comic' && `Like comics? Check this out: "${tip.title}"`}
@@ -41,4 +40,4 @@ export const Tips: React.FC = () => {
             </Box>
         </>
     );
-}
+};
