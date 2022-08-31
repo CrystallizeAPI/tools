@@ -11,6 +11,7 @@ import { PimAuthenticatedUser, PimCredentials } from '../../types.js';
 import { Select } from './Select.js';
 import { colors } from '../../config/colors.js';
 import { UncontrolledTextInput } from 'ink-text-input';
+import React from 'react';
 
 type YesOrNo = 'yes' | 'no';
 type UseExistingCredentials = YesOrNo | 'remove';

@@ -1,11 +1,11 @@
 import { Box, Newline, Text } from 'ink';
-import Link from 'ink-link/index.js';
 import { useEffect, useState } from 'react';
 import { colors } from '../../../../config/colors.js';
 import { Spinner } from '../../../components/Spinner.js';
 import setupProject from '../../../use-cases/setupProject.js';
 import { useJourney } from '../context/provider.js';
 import { FullfilledState } from '../context/types.js';
+import React from 'react';
 
 const feedbacks = [
     'Fetching the dependencies...',

@@ -3,6 +3,7 @@ import Link from 'ink-link';
 import { useEffect, useState } from 'react';
 import { Tip as TipType } from '../../types.js';
 import fetchTips, { staticTips } from '../use-cases/fetchTips.js';
+import React from 'react';
 
 export const Tips: React.FC = () => {
     const [tips, setTips] = useState<TipType[]>(staticTips);

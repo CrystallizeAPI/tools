@@ -1,6 +1,7 @@
 import { Newline, Text } from 'ink';
 import Link from 'ink-link';
 import { Boilerplate } from '../../types.js';
+import React from 'react';
 
 export const BoilerplateChoice: React.FC<{ boilerplate: Boilerplate }> = ({ boilerplate }) => {
     return (

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { FunctionComponent } from 'react';
+import { createContext, FunctionComponent, ReactNode, useContext, useReducer } from 'react';
 import { mapToReducerActions, Reducer } from './reducer.js';
 import { Actions, Dispatch, InitialState, State } from './types.js';
+import React from 'react';
 
-const StateContext = React.createContext<State | undefined>(undefined);
-const DispatchContext = React.createContext<Dispatch | undefined>(undefined);
+const StateContext = createContext<State | undefined>(undefined);
+const DispatchContext = createContext<Dispatch | undefined>(undefined);
 
 const initiateState = (state: InitialState): State => {
     return {
@@ -20,10 +20,10 @@ const initiateState = (state: InitialState): State => {
 };
 
 export const ContextProvider: FunctionComponent<{
-    children: React.ReactNode;
+    children: ReactNode;
     initialState: InitialState;
 }> = ({ children, initialState }) => {
-    const [state, dispatch] = React.useReducer(Reducer, initiateState(initialState));
+    const [state, dispatch] = useReducer(Reducer, initiateState(initialState));
     return (
         <StateContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
@@ -32,7 +32,7 @@ export const ContextProvider: FunctionComponent<{
 };
 
 function useContextState<T = State>(): T {
-    const context = React.useContext(StateContext);
+    const context = useContext(StateContext);
     if (context === undefined) {
         throw new Error('useContextState must be used within the ContextProvider.');
     }
@@ -40,7 +40,7 @@ function useContextState<T = State>(): T {
 }
 
 function useContextDispatch() {
-    const context = React.useContext(DispatchContext);
+    const context = useContext(DispatchContext);
     if (context === undefined) {
         throw new Error('useContextDispatch must be used within the ContextProvider.');
     }

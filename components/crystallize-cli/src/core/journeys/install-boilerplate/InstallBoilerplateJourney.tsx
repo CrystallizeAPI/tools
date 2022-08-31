@@ -10,6 +10,7 @@ import { fetchAvailableTenantIdentifier } from '../../utils/crystallize.js';
 import { Messages } from '../../components/Messages.js';
 import { colors } from '../../../config/colors.js';
 import { Text } from 'ink';
+import React from 'react';
 
 export const InstallBoilerplateJourney: React.FC<{
     folder: string;

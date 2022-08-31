@@ -1,6 +1,7 @@
 import { Box, Newline, Text } from 'ink';
 import Link from 'ink-link';
 import { UncontrolledTextInput } from 'ink-text-input';
+import React from 'react';
 import { useState } from 'react';
 import { colors } from '../../../../config/colors.js';
 import { Tenant } from '../../../../types.js';

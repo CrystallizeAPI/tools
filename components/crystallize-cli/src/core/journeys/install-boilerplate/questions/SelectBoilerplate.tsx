@@ -1,4 +1,5 @@
 import { Text } from 'ink';
+import React from 'react';
 import { boilerplates } from '../../../../config/boilerplates.js';
 import { colors } from '../../../../config/colors.js';
 import { Boilerplate } from '../../../../types.js';

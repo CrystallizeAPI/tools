@@ -48,7 +48,7 @@ export async function removeFile(path: string): Promise<void> {
 
 export async function saveFile(path: string, content: string): Promise<void> {
     return new Promise((resolve, reject) => {
-        fs.writeFile(path, content, function (err) {
+        fs.writeFile(path, content, function (err: any) {
             if (err) {
                 reject(err);
             } else {
@@ -60,7 +60,7 @@ export async function saveFile(path: string, content: string): Promise<void> {
 
 export async function replaceInFile(path: string, keyValues: { search: string; replace: string }[]): Promise<void> {
     return new Promise((resolve, reject) => {
-        fs.readFile(path, 'utf8', (err, content) => {
+        fs.readFile(path, 'utf8', (err: any, content: string) => {
             if (err) {
                 reject(err);
             } else {

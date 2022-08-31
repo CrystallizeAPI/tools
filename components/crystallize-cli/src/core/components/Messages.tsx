@@ -1,5 +1,6 @@
 import { Box, Newline, Text } from 'ink';
 import { colors } from '../../config/colors.js';
+import React from 'react';
 
 export const Messages: React.FC<{ messages: string[] }> = ({ messages }) => {
     if (messages.length === 0) {

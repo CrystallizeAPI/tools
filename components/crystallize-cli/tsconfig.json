@@ -3,7 +3,7 @@
     "compilerOptions": {
         "outDir": "./build",
         "declaration": true,
-        "jsx": "react-jsx",
+        "jsx": "react",
         "module": "ES2020",
         "moduleResolution": "node"
     },

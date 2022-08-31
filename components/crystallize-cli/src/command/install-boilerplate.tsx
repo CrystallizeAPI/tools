@@ -3,6 +3,7 @@ import { Box, Text } from 'ink';
 import { InstallBoilerplateJourney } from '../core/journeys/install-boilerplate/InstallBoilerplateJourney.js';
 import { isDirectoryEmpty, makeDirectory } from '../core/utils/fs-utils.js';
 import { styles } from '../core/utils/console.js';
+import React from 'react';
 
 export default async (args: string[], flags: any): Promise<number> => {
     const folder = args[0];

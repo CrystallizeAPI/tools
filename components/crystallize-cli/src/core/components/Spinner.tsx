@@ -2,6 +2,7 @@ import cliSpinners, { Spinner as TSpinner } from 'cli-spinners';
 import { Text } from 'ink';
 import { useEffect, useState } from 'react';
 import { colors } from '../../config/colors.js';
+import React from 'react';
 
 export const Spinner: React.FC<{ name?: string }> = ({ name = 'dots' }) => {
     const [frame, setFrame] = useState(0);

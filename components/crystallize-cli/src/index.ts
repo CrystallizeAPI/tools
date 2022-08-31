@@ -15,7 +15,7 @@ const minVersion = 16;
 if (major < minVersion) {
     output.error(
         styles.error(
-            `You are running Node.js v${currentNodeVersion}. OSS Releaser requires Node ${minVersion} or higher.`,
+            `You are running Node.js v${currentNodeVersion}. Crystallize CLI requires Node ${minVersion} or higher.`,
         ),
     );
     process.exit(1);

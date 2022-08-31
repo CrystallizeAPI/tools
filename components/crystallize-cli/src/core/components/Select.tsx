@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Text, useInput, Box, Newline } from 'ink';
 import { colors } from '../../config/colors.js';
+import React from 'react';
 
 /**
  * Due to terminals not always being that large, we need
