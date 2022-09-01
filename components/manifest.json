@@ -8,6 +8,10 @@
         "magento-import": {
             "name": "Magento Import",
             "git": "git@github.com:CrystallizeAPI/crystallize-magento-import.git"
+        },
+        "crystallize-cli": {
+            "name": "Crystallize CLI",
+            "git": "git@github.com:CrystallizeAPI/crystallize-cli-next.git"
         }
     }
 }

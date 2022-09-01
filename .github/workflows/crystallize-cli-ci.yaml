@@ -1,0 +1,55 @@
+name: Crystallize CLI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  lint:
+    name: 🧹 Check conventions
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 💄 Prettier
+        uses: actionsx/prettier@v2
+        with:
+          args: --check components/crystallize-cli
+
+      - uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: components/crystallize-cli/commitlint.config.cjs
+
+  test:
+    name: 🧪 Tests
+    runs-on: ubuntu-latest
+    needs: [lint]
+    strategy:
+      matrix:
+        node: [16, 18]
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      # The `rm` here is to run outside of the mono workspace
+      - name: 📥 Download deps and build
+        run: |
+          rm -rf package.json yarn.lock node_modules
+          cd components/crystallize-cli && yarn install && yarn build
+
+      - name: 🏄 Run the tests
+        run: |
+          cd components/crystallize-cli && yarn test

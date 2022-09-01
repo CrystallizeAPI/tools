@@ -17,3 +17,7 @@ list:
 .PHONY: codeclean
 codeclean: ## Code Clean
 	@yarn prettier --write .
+
+.PHONY: tests
+tests: ## Run the tests
+	@yarn test
