@@ -1,9 +1,8 @@
 import { Newline, render } from 'ink';
 import { Box, Text } from 'ink';
 import { InstallBoilerplateJourney } from '../core/journeys/install-boilerplate/InstallBoilerplateJourney.js';
-import { isDirectoryEmpty, makeDirectory } from '../core/utils/fs-utils.js';
-import { styles } from '../core/utils/console.js';
 import React from 'react';
+import createFolderOrFail from '../core/use-cases/createFolderOrFail.js';
 
 export default async (args: string[], flags: any): Promise<number> => {
     const folder = args[0];
@@ -11,14 +10,7 @@ export default async (args: string[], flags: any): Promise<number> => {
     const bootstrapTenant = flags.bootstrapTenant;
     const isVerbose = flags.verbose;
 
-    if (!folder || folder.length === 0) {
-        throw new Error('Please provide a folder to install the boilerplate into.');
-    }
-
-    makeDirectory(folder);
-    if (!(await isDirectoryEmpty(folder))) {
-        throw new Error(`The folder ${styles.highlight(folder)} is not empty.`);
-    }
+    await createFolderOrFail(folder, 'Please provide a folder to install the boilerplate into.');
 
     const { waitUntilExit } = render(
         <>

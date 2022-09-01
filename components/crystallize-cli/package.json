@@ -40,6 +40,7 @@
         "test": "jest --setupFiles dotenv/config"
     },
     "dependencies": {
+        "@crystallize/import-utilities": "^0.102.3",
         "@crystallize/js-api-client": "^1.1.1",
         "chalk": "^5.0.1",
         "cli-spinners": "^2.7.0",

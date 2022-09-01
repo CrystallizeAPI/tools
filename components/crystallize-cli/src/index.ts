@@ -56,8 +56,10 @@ run(cli.input, cli.flags).then((code) => {
         }
         output.log(styles.success('Done!'));
     } else {
-        output.log(styles.failure('Finished with errors.'));
+        output.log(styles.failure('Exited with errors.'));
     }
+    // this is needed to make sure the process exits. The bootstraper is maintaining something.
+    process.exit(code);
 });
 
 export async function run(args: string[], flags: any): Promise<number> {

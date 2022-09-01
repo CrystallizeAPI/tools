@@ -48,11 +48,11 @@ export default async (): Promise<Tip[]> => {
     const data: any = await fetcher(query).catch(console.error);
     return [
         ...staticTips,
-        // ...data.blogPosts.subtree.edges.map(({ node }: { node: { name: string, path: string } }) => ({
-        //     title: node.name,
-        //     url: `https://crystallize.com${node.path}`,
-        //     type: 'blogPost',
-        // })),
+        ...data.blogPosts.subtree.edges.map(({ node }: { node: { name: string; path: string } }) => ({
+            title: node.name,
+            url: `https://crystallize.com${node.path}`,
+            type: 'blogPost',
+        })),
         ...data.comics.subtree.edges.map(({ node }: { node: { name: string; path: string } }) => ({
             title: node.name,
             url: `https://crystallize.com${node.path}`,
