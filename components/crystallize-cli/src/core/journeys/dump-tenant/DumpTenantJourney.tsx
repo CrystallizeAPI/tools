@@ -56,7 +56,6 @@ export const DumpTenantJourney: React.FC<{
                         dumpTenant(tenantIdentifier, folder!, credentials, (eventName: string, message: string) => {
                             dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
                         }).then((spec: JsonSpec) => {
-                            console.log(spec);
                             dispatch({ type: 'DUMPING_DONE' });
                             exit();
                         });
@@ -69,9 +68,9 @@ export const DumpTenantJourney: React.FC<{
                         <Spinner />
                         Dumping tenant: <Text dimColor>{feedbacks[state.feedbackIndex]}</Text>
                     </Text>
-                    <Messages title="Trace" messages={state.messages} />
                 </>
             )}
+            <Messages title="Trace" messages={state.messages} />
         </>
     );
 };

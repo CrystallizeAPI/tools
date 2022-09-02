@@ -22,6 +22,7 @@ export const Messages: React.FC<{ title?: string; messages: string[] }> = ({ tit
                                     {'> '}
                                 </Text>
                                 {message}
+                                <Newline />
                             </Text>
                         );
                     })}
