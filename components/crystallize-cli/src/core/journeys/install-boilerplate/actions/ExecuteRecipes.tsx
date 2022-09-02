@@ -1,11 +1,15 @@
-import { Box, Newline, Text } from 'ink';
+import { Box, Newline, Text, useApp } from 'ink';
 import { useEffect, useState } from 'react';
 import { colors } from '../../../../config/colors.js';
 import { Spinner } from '../../../components/Spinner.js';
 import setupProject from '../../../use-cases/setupProject.js';
 import { useJourney } from '../context/provider.js';
-import { FullfilledState } from '../context/types.js';
+import { FullfilledState, Status } from '../context/types.js';
 import React from 'react';
+import createTenant from '../../../use-cases/createTenant.js';
+import importTentantDump from '../../../use-cases/importTentantDump.js';
+import { EVENT_NAMES } from '@crystallize/import-utilities';
+import { ImportStatus } from '../../../components/ImportStatus.js';
 
 const feedbacks = [
     'Fetching the dependencies...',
@@ -25,31 +29,57 @@ export const ExecuteRecipes: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) 
     const [output, setOutput] = useState<string[]>(['']);
     const [error, setError] = useState<string[]>(['']);
     const [feedbackIndex, setFeedbackIndex] = useState<number>(0);
+    const [status, setStatus] = useState<Status | null>(null);
+    const { exit } = useApp();
 
     useEffect(() => {
         //@todo: this setOutput is actually not working very well
         // somehow the state is not updated... probably because of the useEffect + spawn
-        setupProject(
-            state,
-            (data: Buffer) => {
-                if (!isVerbose) {
-                    return;
+        Promise.all([
+            setupProject(
+                state,
+                (data: Buffer) => {
+                    if (!isVerbose) {
+                        return;
+                    }
+                    const text = data.toString();
+                    const lines = text.split('\n');
+                    setOutput([...output, ...lines]);
+                },
+                (err: Buffer) => {
+                    if (!isVerbose) {
+                        return;
+                    }
+                    const text = err.toString();
+                    const lines = text.split('\n');
+                    setError([...error, ...lines]);
+                },
+            ),
+            (() => {
+                if (!state.bootstrapTenant) {
+                    return null;
                 }
-                const text = data.toString();
-                const lines = text.split('\n');
-                setOutput([...output, ...lines]);
-            },
-            (err: Buffer) => {
-                if (!isVerbose) {
-                    return;
-                }
-                const text = err.toString();
-                const lines = text.split('\n');
-                setError([...error, ...lines]);
-            },
-        ).then((code: number) => {
-            if (code === 0) {
-                dispatch.recipesDone();
+                return createTenant(state.tenant, state.credentials).then(async () => {
+                    dispatch.startImport();
+                    await importTentantDump(
+                        state.tenant.identifier,
+                        `${state.folder}/provisioning/tenant/spec.json`,
+                        state.credentials,
+                        (eventName: string, message: string | any) => {
+                            if (eventName === EVENT_NAMES.STATUS_UPDATE) {
+                                setStatus(message);
+                                return;
+                            }
+                            dispatch.addMessage(`${eventName}: ${message}`);
+                        },
+                    );
+                });
+            })(),
+        ]).then(() => {
+            dispatch.recipesDone();
+            // Bootstrapper forces us to exit...
+            if (state.bootstrapTenant) {
+                exit();
             }
         });
     }, []);
@@ -98,6 +128,15 @@ export const ExecuteRecipes: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) 
                         </Text>
                     ))}
                 </Box>
+            )}
+            {state.isBoostrapping && (
+                <>
+                    <Text>
+                        <Spinner />
+                        Importing tenant data
+                    </Text>
+                    {status && <ImportStatus status={status} />}
+                </>
             )}
         </>
     );

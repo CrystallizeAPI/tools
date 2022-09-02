@@ -49,10 +49,22 @@ export function Reducer(state: State, action: Action): State {
                     isFullfilled: true,
                 };
             }
+            case 'IMPORT_STARTED': {
+                return {
+                    ...state,
+                    isBoostrapping: true,
+                };
+            }
             case 'SET_CREDENTIALS': {
                 return {
                     ...state,
                     credentials: action.credentials,
+                };
+            }
+            case 'ADD_MESSAGE': {
+                return {
+                    ...state,
+                    messages: [...state.messages, `${action.message}`],
                 };
             }
             default: {
@@ -75,5 +87,7 @@ export function mapToReducerActions(dispatch: Dispatch): Actions {
         recipesDone: () => dispatch({ type: 'RECIPES_DONE' }),
         setCredentials: (credentials: PimCredentials) => dispatch({ type: 'SET_CREDENTIALS', credentials }),
         changeTenant: (item: Tenant) => dispatch({ type: 'CHANGE_TENANT', item }),
+        startImport: () => dispatch({ type: 'IMPORT_STARTED' }),
+        addMessage: (message: string) => dispatch({ type: 'ADD_MESSAGE', message }),
     };
 }

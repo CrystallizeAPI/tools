@@ -7,5 +7,3 @@ This repository is what we call a "subtree split": a read-only copy of one direc
 If you want to report or contribute, you should do it on the main repository: https://github.com/CrystallizeAPI/tools
 
 ---
-
-{Here comes the component Readme content}

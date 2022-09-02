@@ -1,6 +1,7 @@
 import { Box, Text } from 'ink';
 import React from 'react';
 import { colors } from '../../config/colors.js';
+import { Status } from '../journeys/install-boilerplate/context/types.js';
 
 const areaMap = {
     media: 'Media',
@@ -21,14 +22,6 @@ function progressText(progress: number) {
     arr.splice(0, filled.length, ...filled);
     return arr.join('');
 }
-
-type Status = Record<
-    string,
-    {
-        progress: number;
-        warnings: { message: string; code: number }[];
-    }
->;
 
 export const ImportStatus: React.FC<{ status: Status }> = ({ status }) => {
     return (

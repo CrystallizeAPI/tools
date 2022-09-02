@@ -1,6 +1,6 @@
 import { ClientInterface, createClient } from '@crystallize/js-api-client';
 import { jsonToGraphQLQuery } from 'json-to-graphql-query';
-import { PimAuthenticatedUser, PimCredentials, Tenant } from '../../types.js';
+import { PimCredentials, Tenant } from '../../types.js';
 
 async function cleanShapes(apiClient: ClientInterface, tenantId: string, ...shapeIdentifiers: string[]): Promise<any> {
     const mutation = {
@@ -55,7 +55,7 @@ async function initiateTenantInCrystallize(
     return result.tenant.create;
 }
 
-export default async (tenant: Tenant, credentials: PimCredentials, user: PimAuthenticatedUser): Promise<void> => {
+export default async (tenant: Tenant, credentials: PimCredentials): Promise<void> => {
     const apiClient = createClient({
         tenantIdentifier: tenant.identifier,
         accessTokenId: credentials.ACCESS_TOKEN_ID,

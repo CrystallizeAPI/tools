@@ -11,6 +11,7 @@ import { Spinner } from '../../components/Spinner.js';
 import createTenant from '../../use-cases/createTenant.js';
 import importTentantDump from '../../use-cases/importTentantDump.js';
 import { fetchAvailableTenantIdentifier } from '../../utils/crystallize.js';
+import { Status } from '../install-boilerplate/context/types.js';
 import { State, Reducer } from './reducer.js';
 
 export const ImportTenantDumpJourney: React.FC<{
@@ -20,7 +21,7 @@ export const ImportTenantDumpJourney: React.FC<{
 }> = ({ specFilePath, tenantIdentifier, isVerbose = false }) => {
     const { exit } = useApp();
 
-    const [status, setStatus] = useState(null);
+    const [status, setStatus] = useState<Status | null>(null);
     const [state, dispatch] = useReducer(Reducer, {
         feedbackIndex: 0,
         messages: [],
@@ -43,7 +44,7 @@ export const ImportTenantDumpJourney: React.FC<{
                                     type: 'CHANGE_TENANT',
                                     item: newTenant,
                                 });
-                                createTenant(newTenant, credentials, user).then(() => {
+                                createTenant(newTenant, credentials).then(() => {
                                     dispatch({ type: 'IMPORT_STARTED' });
                                     importTentantDump(
                                         newTenant.identifier,
