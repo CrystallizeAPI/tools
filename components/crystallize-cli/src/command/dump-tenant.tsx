@@ -3,6 +3,7 @@ import React from 'react';
 import { colors } from '../config/colors.js';
 import { DumpTenantJourney } from '../core/journeys/dump-tenant/DumpTenantJourney.js';
 import createFolderOrFail from '../core/use-cases/createFolderOrFail.js';
+import { styles } from '../core/utils/console.js';
 
 export default async (args: string[], flags: any): Promise<number> => {
     const folder = args[0];
@@ -12,7 +13,7 @@ export default async (args: string[], flags: any): Promise<number> => {
     await createFolderOrFail(folder, 'Please provide a folder to dump the tenant into.');
 
     if (tenantIdentifier.length === 0) {
-        throw new Error('Please provide a tenant identifier.');
+        throw new Error(`Please provide a ${styles.highlight('tenant identifier')}`);
     }
 
     const { waitUntilExit } = render(

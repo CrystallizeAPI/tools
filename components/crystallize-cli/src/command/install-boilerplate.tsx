@@ -3,6 +3,7 @@ import { Box, Text } from 'ink';
 import { InstallBoilerplateJourney } from '../core/journeys/install-boilerplate/InstallBoilerplateJourney.js';
 import React from 'react';
 import createFolderOrFail from '../core/use-cases/createFolderOrFail.js';
+import { styles } from '../core/utils/console.js';
 
 export default async (args: string[], flags: any): Promise<number> => {
     const folder = args[0];
@@ -10,7 +11,7 @@ export default async (args: string[], flags: any): Promise<number> => {
     const bootstrapTenant = flags.bootstrapTenant;
     const isVerbose = flags.verbose;
 
-    await createFolderOrFail(folder, 'Please provide a folder to install the boilerplate into.');
+    await createFolderOrFail(folder, `Please provide a ${styles.highlight('folder')} to install the boilerplate into.`);
 
     const { waitUntilExit } = render(
         <>

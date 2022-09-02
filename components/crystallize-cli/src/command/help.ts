@@ -6,7 +6,7 @@ $ @crystallize/cli <command>
 Arguments:
     install <folder> [<boilerplate>] [<tenantIdentifier>] [-b]: Run the Wizard to install <boilerplate> in <folder> using <tenantIdentifier>
     dump <folder> <tenantIdentifier>: Dump the tenant <tenantIdentifier> to <folder>
-    import <folder> <tenantIdentifier>: Import the dump from <folder> to <tenantIdentifier>
+    import <specfilePath> <tenantIdentifier>: Import the dump from <specfilePath> to <tenantIdentifier>
     help - Show this help message
 
 Options

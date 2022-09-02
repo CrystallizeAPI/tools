@@ -58,6 +58,9 @@ run(cli.input, cli.flags).then((code) => {
     } else {
         output.log(styles.failure('Exited with errors.'));
     }
+    if (cli.flags.verbose) {
+        consoleLogMemoryUsage((key: string) => styles.info(key));
+    }
     // this is needed to make sure the process exits. The bootstraper is maintaining something.
     process.exit(code);
 });
@@ -74,4 +77,15 @@ export async function run(args: string[], flags: any): Promise<number> {
         output.error(styles.error(exception.message));
         return 1;
     }
+}
+
+function consoleLogMemoryUsage(colorizedKeyFunc?: (key: string) => string): void {
+    //@ts-ignore
+    const used: any = process.memoryUsage();
+    let outputLines = ['Memory usage:'];
+    for (const key in used) {
+        const colorizedKey = colorizedKeyFunc ? colorizedKeyFunc(key) : key;
+        outputLines.push(`${colorizedKey} ${Math.round((used[key] / 1024 / 1024) * 100) / 100} MB `);
+    }
+    console.log(outputLines.join(', ') + '\n');
 }

@@ -1,6 +1,6 @@
 import { JsonSpec } from '@crystallize/import-utilities';
 import { Text, useApp } from 'ink';
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { PimAuthenticatedUser, PimCredentials } from '../../../types.js';
 import { Messages } from '../../components/Messages.js';
 import { SetupCredentials } from '../../components/SetupCredentials.js';
