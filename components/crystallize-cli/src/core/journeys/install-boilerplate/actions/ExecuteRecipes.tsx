@@ -1,4 +1,4 @@
-import { Box, Newline, Text, useApp } from 'ink';
+import { Box, Text, useApp } from 'ink';
 import { useEffect, useState } from 'react';
 import { colors } from '../../../../config/colors.js';
 import { Spinner } from '../../../components/Spinner.js';
@@ -75,8 +75,8 @@ export const ExecuteRecipes: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) 
                     );
                 });
             })(),
-        ]).then(() => {
-            dispatch.recipesDone();
+        ]).then(([readme]) => {
+            dispatch.recipesDone(readme);
             // Bootstrapper forces us to exit...
             if (state.bootstrapTenant) {
                 exit();
@@ -98,16 +98,11 @@ export const ExecuteRecipes: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) 
 
     if (state.isFullfilled) {
         return (
-            <>
-                <Text>
-                    That's it! Project is ready to go.
-                    <Newline />
-                    <Text color={colors.highlight}>$ cd {state.folder}/application && npm run dev</Text>
-                </Text>
-            </>
+            <Text>
+                Project has been <Text color={colors.highlight}>installed</Text>.
+            </Text>
         );
     }
-
     return (
         <>
             <Text>

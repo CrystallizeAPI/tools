@@ -17,6 +17,7 @@ const initiateState = (state: InitialState): State => {
         isFullfilled: false,
         messages: [],
         isBoostrapping: false,
+        readme: '',
     };
 };
 

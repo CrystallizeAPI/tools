@@ -20,8 +20,7 @@ export const SelectTenant: React.FC = () => {
                         Please select a Crystallize tenant
                         <Newline />
                         <Text dimColor>
-                            Don't have a tenant yet? Create one at
-                            {/*@ts-ignore*/}
+                            Don't have a tenant yet? Create one at {/*@ts-ignore*/}
                             <Link url="https://crystallize.com/signup">https://crystallize.com/signup</Link>
                         </Text>
                     </Text>

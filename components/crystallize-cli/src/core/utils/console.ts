@@ -26,6 +26,7 @@ export const styles = {
     warning: chalk.hex(colors.warning),
     info: chalk.hex(colors.info),
     error: chalk.hex(colors.error),
+    highlightColor: chalk.hex(colors.highlight),
     section: (message: string) => {
         return `
 ${chalk.gray('-'.repeat(75))}

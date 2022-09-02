@@ -9,8 +9,9 @@ import { Boilerplate, PimAuthenticatedUser, PimCredentials } from '../../../type
 import { fetchAvailableTenantIdentifier } from '../../utils/crystallize.js';
 import { Messages } from '../../components/Messages.js';
 import { colors } from '../../../config/colors.js';
-import { Text } from 'ink';
 import React from 'react';
+import { Success } from './actions/Success.js';
+import { Text } from 'ink';
 
 export const InstallBoilerplateJourney: React.FC<{
     folder: string;
@@ -40,7 +41,6 @@ export const InstallBoilerplateJourney: React.FC<{
 };
 const Journey: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) => {
     const { state, dispatch } = useJourney();
-
     return (
         <>
             <Text>
@@ -62,12 +62,11 @@ const Journey: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) => {
                     }}
                 />
             )}
-
             {state.isWizardFullfilled && <DownloadProject />}
             {state.isDownloaded && <ExecuteRecipes isVerbose={isVerbose} />}
-
             <Messages messages={state.messages} />
             {!state.isFullfilled && <Tips />}
+            {state.isFullfilled && <Success />}
         </>
     );
 };

@@ -18,7 +18,27 @@ export function isFileExists(path: string): boolean {
     return fs.existsSync(path);
 }
 
-export function loadJSON(path: string): Promise<any> {
+export function loadFile(path: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path, 'utf8', (err, content) => {
+            if (err) {
+                reject(err);
+            } else {
+                try {
+                    resolve(content);
+                } catch (err) {
+                    reject(err);
+                }
+            }
+        });
+    });
+}
+export async function loadJSON(path: string): Promise<any> {
+    const text = await loadFile(path);
+    return JSON.parse(text);
+}
+
+export function loadMarkdown(path: string): Promise<any> {
     return new Promise((resolve, reject) => {
         fs.readFile(path, 'utf8', (err, content) => {
             if (err) {

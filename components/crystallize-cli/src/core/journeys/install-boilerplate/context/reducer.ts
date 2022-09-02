@@ -47,6 +47,7 @@ export function Reducer(state: State, action: Action): State {
                 return {
                     ...state,
                     isFullfilled: true,
+                    readme: action.readme,
                 };
             }
             case 'IMPORT_STARTED': {
@@ -84,7 +85,7 @@ export function mapToReducerActions(dispatch: Dispatch): Actions {
         setBoilerplate: (item: Boilerplate) => dispatch({ type: 'SET_BOILERPLATE', item }),
         setTenant: (item: Tenant) => dispatch({ type: 'SET_TENANT', item }),
         boilerplateDownloaded: () => dispatch({ type: 'BOILERPLATE_DOWNLOADED' }),
-        recipesDone: () => dispatch({ type: 'RECIPES_DONE' }),
+        recipesDone: (readme: string) => dispatch({ type: 'RECIPES_DONE', readme }),
         setCredentials: (credentials: PimCredentials) => dispatch({ type: 'SET_CREDENTIALS', credentials }),
         changeTenant: (item: Tenant) => dispatch({ type: 'CHANGE_TENANT', item }),
         startImport: () => dispatch({ type: 'IMPORT_STARTED' }),

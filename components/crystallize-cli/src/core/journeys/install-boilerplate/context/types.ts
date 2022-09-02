@@ -6,7 +6,7 @@ export type Action =
     | { type: 'CHANGE_TENANT'; item: Tenant }
     | { type: 'BOILERPLATE_DOWNLOADED' }
     | { type: 'SET_CREDENTIALS'; credentials: PimCredentials }
-    | { type: 'RECIPES_DONE' }
+    | { type: 'RECIPES_DONE'; readme: string }
     | { type: 'ADD_MESSAGE'; message: string }
     | { type: 'IMPORT_STARTED' };
 
@@ -14,7 +14,7 @@ export type Actions = {
     setBoilerplate: (item: Boilerplate) => void;
     setTenant: (item: Tenant) => void;
     boilerplateDownloaded: () => void;
-    recipesDone: () => void;
+    recipesDone: (readme: string) => void;
     setCredentials: (credentials: PimCredentials) => void;
     changeTenant: (tenant: Tenant) => void;
     startImport: () => void;
@@ -33,6 +33,7 @@ export type State = {
     isFullfilled: boolean;
     messages: string[];
     isBoostrapping: boolean;
+    readme: string;
 };
 
 export type InitialState = Pick<State, 'folder' | 'tenant' | 'bootstrapTenant' | 'boilerplate'>;

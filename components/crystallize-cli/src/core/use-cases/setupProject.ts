@@ -1,5 +1,5 @@
 import { FullfilledState } from '../journeys/install-boilerplate/context/types.js';
-import { replaceInFile } from '../utils/fs-utils.js';
+import { loadFile, replaceInFile } from '../utils/fs-utils.js';
 import { v4 as uuidv4 } from 'uuid';
 import run from '../runner.js';
 
@@ -7,7 +7,7 @@ export default async (
     state: FullfilledState,
     onStdOut?: (data: Buffer) => void,
     onStdErr?: (data: Buffer) => void,
-): Promise<number> => {
+): Promise<string> => {
     await replaceInFile(`${state.folder}/provisioning/clone/.env.dist`, [
         {
             search: '##STOREFRONT_IDENTIFIER##',
@@ -33,5 +33,7 @@ export default async (
     if (onStdOut) {
         onStdOut(Buffer.from(`> .env.dist replaced`, 'utf-8'));
     }
-    return await run(['bash', `${state.folder}/provisioning/clone/setup.bash`], onStdOut, onStdErr);
+    const readme = await loadFile(`${state.folder}/provisioning/clone/success.md`).catch(() => {});
+    await run(['bash', `${state.folder}/provisioning/clone/setup.bash`], onStdOut, onStdErr);
+    return readme || 'cd appplication && npm run dev';
 };
