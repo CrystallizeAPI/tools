@@ -21,6 +21,9 @@ export default async (
         }
     });
     bootstrapper.setSpec(spec);
+    bootstrapper.on(EVENT_NAMES.STATUS_UPDATE, (status) => {
+        emit(EVENT_NAMES.STATUS_UPDATE, status);
+    });
     bootstrapper.on(EVENT_NAMES.DONE, (status) => {
         emit(EVENT_NAMES.DONE, `Duration: ${status.duration}`);
     });
