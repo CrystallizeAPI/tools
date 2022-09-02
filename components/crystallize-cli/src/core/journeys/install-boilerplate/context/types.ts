@@ -35,7 +35,7 @@ export type State = {
     isBoostrapping: boolean;
 };
 
-export type InitialState = Pick<State, 'folder' | 'tenant' | 'bootstrapTenant'>;
+export type InitialState = Pick<State, 'folder' | 'tenant' | 'bootstrapTenant' | 'boilerplate'>;
 
 export type FullfilledState = Required<State>;
 

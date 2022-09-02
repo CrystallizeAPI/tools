@@ -1,5 +1,5 @@
 import { createContext, FunctionComponent, ReactNode, useContext, useReducer } from 'react';
-import { mapToReducerActions, Reducer } from './reducer.js';
+import { isWizardFullfilled, mapToReducerActions, Reducer } from './reducer.js';
 import { Actions, Dispatch, InitialState, State } from './types.js';
 import React from 'react';
 
@@ -10,9 +10,9 @@ const initiateState = (state: InitialState): State => {
     return {
         folder: state.folder,
         tenant: state.tenant,
-        boilerplate: undefined,
+        boilerplate: state.boilerplate,
         bootstrapTenant: state.bootstrapTenant,
-        isWizardFullfilled: false,
+        isWizardFullfilled: isWizardFullfilled(state as State),
         isDownloaded: false,
         isFullfilled: false,
         messages: [],

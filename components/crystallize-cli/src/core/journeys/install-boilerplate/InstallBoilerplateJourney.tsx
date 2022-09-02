@@ -5,7 +5,7 @@ import { ContextProvider, useJourney } from './context/provider.js';
 import { Tips } from '../../components/Tips.js';
 import { ExecuteRecipes } from './actions/ExecuteRecipes.js';
 import { SetupCredentials } from '../../components/SetupCredentials.js';
-import { PimAuthenticatedUser, PimCredentials } from '../../../types.js';
+import { Boilerplate, PimAuthenticatedUser, PimCredentials } from '../../../types.js';
 import { fetchAvailableTenantIdentifier } from '../../utils/crystallize.js';
 import { Messages } from '../../components/Messages.js';
 import { colors } from '../../../config/colors.js';
@@ -16,12 +16,14 @@ export const InstallBoilerplateJourney: React.FC<{
     folder: string;
     tenantIdentifier?: string;
     bootstrapTenant?: boolean;
+    boilerplate?: Boilerplate;
     isVerbose?: boolean;
-}> = ({ folder, tenantIdentifier, bootstrapTenant = false, isVerbose = false }) => {
+}> = ({ folder, tenantIdentifier, bootstrapTenant = false, isVerbose = false, boilerplate }) => {
     return (
         <ContextProvider
             initialState={{
                 folder,
+                boilerplate,
                 bootstrapTenant: !!bootstrapTenant,
                 ...(tenantIdentifier
                     ? {
@@ -49,12 +51,12 @@ const Journey: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) => {
             {state.boilerplate && state.tenant?.identifier && state.bootstrapTenant && !state.credentials && (
                 <SetupCredentials
                     dispatch={(user: PimAuthenticatedUser, credentials: PimCredentials) => {
-                        dispatch.setCredentials(credentials);
                         fetchAvailableTenantIdentifier(credentials, state.tenant!.identifier).then(
                             (newIdentifier: string) => {
                                 dispatch.changeTenant({
                                     identifier: newIdentifier,
                                 });
+                                dispatch.setCredentials(credentials);
                             },
                         );
                     }}

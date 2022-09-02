@@ -1,7 +1,7 @@
 import { Boilerplate, PimCredentials, Tenant } from '../../../../types.js';
 import { Action, Actions, Dispatch, State } from './types.js';
 
-function isWizardFullfilled(state: State): boolean {
+export function isWizardFullfilled(state: State): boolean {
     if (state.bootstrapTenant && !state.credentials) {
         return false;
     }

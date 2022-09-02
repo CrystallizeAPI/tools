@@ -31,9 +31,15 @@ const commands = {
 const cli = meow(helpText, {
     importMeta: import.meta,
     flags: {
+        quiet: {
+            type: 'boolean',
+            default: false,
+            alias: 'q',
+        },
         interactive: {
             type: 'boolean',
             default: true,
+            alias: 'i',
         },
         verbose: {
             type: 'boolean',
@@ -66,6 +72,9 @@ run(cli.input, cli.flags).then((code) => {
 });
 
 export async function run(args: string[], flags: any): Promise<number> {
+    if (flags.quiet) {
+        output.quiet = true;
+    }
     output.log(styles.title('Crystallize - headless commerce for product storytellers'));
     if (args.length === 0) {
         return help(args.slice(1), flags);
@@ -87,5 +96,5 @@ function consoleLogMemoryUsage(colorizedKeyFunc?: (key: string) => string): void
         const colorizedKey = colorizedKeyFunc ? colorizedKeyFunc(key) : key;
         outputLines.push(`${colorizedKey} ${Math.round((used[key] / 1024 / 1024) * 100) / 100} MB `);
     }
-    console.log(outputLines.join(', ') + '\n');
+    output.log(outputLines.join(', ') + '\n');
 }

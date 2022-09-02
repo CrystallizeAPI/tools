@@ -1,6 +1,26 @@
 import chalk from 'chalk';
 import { colors } from '../../config/colors.js';
-export const output = console;
+
+class Output {
+    private isQuiet: boolean;
+    constructor(quiet: boolean) {
+        this.isQuiet = quiet;
+    }
+    set quiet(quiet: boolean) {
+        this.isQuiet = quiet;
+    }
+
+    log(...args: any) {
+        if (!this.isQuiet) {
+            console.log(...args);
+        }
+    }
+    error(...args: any) {
+        console.error(...args);
+    }
+}
+
+export const output = new Output(false);
 
 export const styles = {
     warning: chalk.hex(colors.warning),
