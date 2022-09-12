@@ -327,10 +327,10 @@
     ow "^0.4.0"
     parse5 "^6.0.1"
 
-"@crystallize/import-utilities@^0.102.3":
-  version "0.102.3"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-0.102.3.tgz#972f261fcd967b86e1d810f997d99aadc60abe9a"
-  integrity sha512-ehnszudJOO3JoCEp9IDvAJ+v3jz+aWlKoPR8ywzakRxo0+YSrbLyxXK1CG+ytEfnFdMNqZhT6l/BsejSr3DY/w==
+"@crystallize/import-utilities@^0.106.1":
+  version "0.106.1"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-0.106.1.tgz#5924b4af588f566db356348fb771b6276a2b730c"
+  integrity sha512-Y6bbLuVVIwbIYYrPpY8Xgpq2bJRq+VWuc273CdUypAzzvrodeUKkiJYMWShSmcUa26Lp4/O5EF3jerR2541W0w==
   dependencies:
     "@crystallize/content-transformer" "^9.1.2"
     dotenv "^10.0.0"
