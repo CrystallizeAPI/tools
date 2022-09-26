@@ -327,12 +327,23 @@
     ow "^0.4.0"
     parse5 "^6.0.1"
 
-"@crystallize/import-utilities@^0.102.3":
-  version "0.102.3"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-0.102.3.tgz#972f261fcd967b86e1d810f997d99aadc60abe9a"
-  integrity sha512-ehnszudJOO3JoCEp9IDvAJ+v3jz+aWlKoPR8ywzakRxo0+YSrbLyxXK1CG+ytEfnFdMNqZhT6l/BsejSr3DY/w==
+"@crystallize/import-export-sdk@^0.0.1-7":
+  version "0.0.1-7"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-export-sdk/-/import-export-sdk-0.0.1-7.tgz#ba7b7c45086bdba1054f084f3a3256111f4fcd6d"
+  integrity sha512-A1yYnxwZ4dI1FYPWmhJn03VuHhmTByGw56gU/LyKQYqUCWWeF+i/Elh2/ONadYx+NpScLw6A9qvSoLpF/nNtOA==
+  dependencies:
+    "@crystallize/js-api-client" "*"
+    "@crystallize/schema" "^0.0.1-6"
+
+"@crystallize/import-utilities@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.1.1.tgz#0fd1a8ccf622c8c73afa7b3d7f2ede46d0fd8462"
+  integrity sha512-VldpbMF7RT/cjkKNxY50Hgf8bztzDEXeQvaHgBT8UrAfHOfttmJXhPtDn+39Rd1XO6hWCTq0lS9cs/0+CzKdqg==
   dependencies:
     "@crystallize/content-transformer" "^9.1.2"
+    "@crystallize/import-export-sdk" "^0.0.1-7"
+    "@crystallize/js-api-client" "^1.3.1"
+    "@crystallize/schema" "^0.0.1-6"
     dotenv "^10.0.0"
     download "^8.0.0"
     duration "^0.2.2"
@@ -351,10 +362,10 @@
     uuid "^8.3.2"
     xml-js "^1.6.11"
 
-"@crystallize/js-api-client@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.1.1.tgz#37bc84b6c68b9fcda1b6c6e71292682c36c450d5"
-  integrity sha512-xs0c1K0lXwTjMfTpuuKhyxscv1Uhp2AEdU9sHRL99zmv5dqipbfcE6ZxrU/UrX27CIM6aCZvJWeugBhivlJBAA==
+"@crystallize/js-api-client@*", "@crystallize/js-api-client@^1.1.1", "@crystallize/js-api-client@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.3.1.tgz#8d3a127a28b7f6946dc07ac7e1f10cc9c1975c7b"
+  integrity sha512-lX8w1zqwWRFWZU+9fouJ3105WNaSsGkW9Ld8Qg6WSUDgpMgY+WRunXBQ+NuRRajVfdFhZpouo3ty2yMdnWYABw==
   dependencies:
     dotenv "^16.0.0"
     json-to-graphql-query "^2.2.3"
@@ -362,6 +373,13 @@
     tiny-invariant "^1.2.0"
     typescript "^4.6.3"
     zod "^3.14.3"
+
+"@crystallize/schema@^0.0.1-6":
+  version "0.0.1-6"
+  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.0.1-6.tgz#31ae36d5f76156524b9b19a2c964b185f15508ad"
+  integrity sha512-P5hCDJT5tuGNEHUn5May3xJquWuEnoWs3BbMRqvfPRXBf6cCpUgJsR4Tm7ajXlGgRKZXETYISU5VJjGy77XglQ==
+  dependencies:
+    zod "^3.17.9"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -4100,3 +4118,8 @@ zod@^3.14.3:
   version "3.18.0"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.18.0.tgz#2eed58b3cafb8d9a67aa2fee69279702f584f3bc"
   integrity sha512-gwTm8RfUCe8l9rDwN5r2A17DkAa8Ez4Yl4yXqc5VqeGaXaJahzYYXbTwvhroZi0SNBqTwh/bKm2N0mpCzuw4bA==
+
+zod@^3.17.9:
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.19.1.tgz#112f074a97b50bfc4772d4ad1576814bd8ac4473"
+  integrity sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==
