@@ -58,6 +58,6 @@
         "marked-terminal": "^5.1.1",
         "meow": "^11",
         "react": "^17",
-        "uuid": "^8.3.2"
+        "uuid": "^9.0.0"
     }
 }
