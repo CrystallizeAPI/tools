@@ -3,12 +3,12 @@ import { PimCredentials } from '../../types.js';
 import { loadJSON } from '../utils/fs-utils.js';
 
 type Props = {
-  tenantIdentifier: string;
-  specFilePath: string,
-  credentials: PimCredentials,
-  emit: (eventName: string, message: string) => void,
-  multiLingual?: boolean;
-}
+    tenantIdentifier: string;
+    specFilePath: string;
+    credentials: PimCredentials;
+    emit: (eventName: string, message: string) => void;
+    multiLingual?: boolean;
+};
 export default async ({
     tenantIdentifier,
     specFilePath,
@@ -19,7 +19,7 @@ export default async ({
     const spec: JsonSpec = await loadJSON(specFilePath);
     const bootstrapper = new Bootstrapper();
     bootstrapper.setTenantIdentifier(tenantIdentifier);
-    bootstrapper.config.multilingual = multiLingual
+    bootstrapper.config.multilingual = multiLingual;
     bootstrapper.setAccessToken(credentials.ACCESS_TOKEN_ID, credentials.ACCESS_TOKEN_SECRET);
     bootstrapper.on(EVENT_NAMES.ERROR, (status) => {
         try {

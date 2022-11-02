@@ -62,10 +62,10 @@ export const ExecuteRecipes: React.FC<{ isVerbose: boolean }> = ({ isVerbose }) 
                 return createTenant(state.tenant, state.credentials).then(async () => {
                     dispatch.startImport();
                     await importTentantDump({
-                      tenantIdentifier: state.tenant.identifier,
-                      specFilePath: `${state.folder}/provisioning/tenant/spec.json`,
-                      credentials: state.credentials,
-                      emit: (eventName: string, message: string | any) => {
+                        tenantIdentifier: state.tenant.identifier,
+                        specFilePath: `${state.folder}/provisioning/tenant/spec.json`,
+                        credentials: state.credentials,
+                        emit: (eventName: string, message: string | any) => {
                             if (eventName === EVENT_NAMES.STATUS_UPDATE) {
                                 setStatus(message);
                                 return;

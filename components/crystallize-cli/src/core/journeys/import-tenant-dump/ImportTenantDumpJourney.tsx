@@ -48,17 +48,17 @@ export const ImportTenantDumpJourney: React.FC<{
                                 createTenant(newTenant, credentials).then(() => {
                                     dispatch({ type: 'IMPORT_STARTED' });
                                     importTenantDump({
-                                      tenantIdentifier: newTenant.identifier,
-                                      specFilePath,
-                                      credentials,
-                                      multiLingual,
-                                      emit: (eventName: string, message: string | any) => {
-                                        if (eventName === EVENT_NAMES.STATUS_UPDATE) {
-                                          setStatus(message);
-                                          return;
-                                        }
-                                        dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
-                                      },
+                                        tenantIdentifier: newTenant.identifier,
+                                        specFilePath,
+                                        credentials,
+                                        multiLingual,
+                                        emit: (eventName: string, message: string | any) => {
+                                            if (eventName === EVENT_NAMES.STATUS_UPDATE) {
+                                                setStatus(message);
+                                                return;
+                                            }
+                                            dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
+                                        },
                                     }).then(() => {
                                         dispatch({ type: 'IMPORT_DONE' });
                                         exit();

@@ -24,14 +24,14 @@ export default async (args: string[], flags: any): Promise<number> => {
         const credentials = await getCredentialsOrFail();
         output.log(styles.info(`Dumping tenant ${styles.highlight(tenantIdentifier)} ...`));
         await dumpTenant({
-          tenantIdentifier,
-          folder,
-          credentials,
-          multiLingual,
-          emit: (eventName: string, message: string) => {
-            output.log(eventName, message);
-          },
-        })
+            tenantIdentifier,
+            folder,
+            credentials,
+            multiLingual,
+            emit: (eventName: string, message: string) => {
+                output.log(eventName, message);
+            },
+        });
         output.log(styles.info('Tenant dumped.'));
         return 0;
     }

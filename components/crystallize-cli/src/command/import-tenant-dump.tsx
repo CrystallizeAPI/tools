@@ -30,13 +30,13 @@ export default async (args: string[], flags: any): Promise<number> => {
         const identifier = await fetchAvailableTenantIdentifier(credentials, tenantIdentifier);
         await createTenant({ identifier }, credentials);
         await importTenantDump({
-          tenantIdentifier: identifier,
-          specFilePath,
-          credentials,
-          emit: (eventName: string, message: string | any) => {
-            output.log(eventName, message);
-          },
-          multiLingual,
+            tenantIdentifier: identifier,
+            specFilePath,
+            credentials,
+            emit: (eventName: string, message: string | any) => {
+                output.log(eventName, message);
+            },
+            multiLingual,
         });
         output.log(styles.info('Tenant is ready.'));
         return 0;

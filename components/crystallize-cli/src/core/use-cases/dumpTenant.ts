@@ -3,23 +3,23 @@ import { PimCredentials } from '../../types.js';
 import { saveFile } from '../utils/fs-utils.js';
 
 type Props = {
-  tenantIdentifier: string;
-  folder: string,
-  credentials: PimCredentials,
-  emit: (eventName: string, message: string) => void,
-  multiLingual?: boolean;
-}
+    tenantIdentifier: string;
+    folder: string;
+    credentials: PimCredentials;
+    emit: (eventName: string, message: string) => void;
+    multiLingual?: boolean;
+};
 export default async ({
     tenantIdentifier,
     folder,
     credentials,
     emit,
-    multiLingual = false
+    multiLingual = false,
 }: Props): Promise<JsonSpec> => {
     const bootstrapper = new Bootstrapper();
     bootstrapper.setTenantIdentifier(tenantIdentifier);
     bootstrapper.setAccessToken(credentials.ACCESS_TOKEN_ID, credentials.ACCESS_TOKEN_SECRET);
-    bootstrapper.config.multilingual = multiLingual
+    bootstrapper.config.multilingual = multiLingual;
 
     bootstrapper.on(EVENT_NAMES.ERROR, (status) => {
         try {

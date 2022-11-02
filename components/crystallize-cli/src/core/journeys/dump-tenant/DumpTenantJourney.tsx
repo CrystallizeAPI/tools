@@ -55,17 +55,17 @@ export const DumpTenantJourney: React.FC<{
                     dispatch={(user: PimAuthenticatedUser, credentials: PimCredentials) => {
                         dispatch({ type: 'DUMPING_STARTED' });
                         dumpTenant({
-                          tenantIdentifier,
-                          folder: folder!,
-                          credentials,
-                          multiLingual,
-                          emit: (eventName: string, message: string) => {
-                            dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
-                          }
+                            tenantIdentifier,
+                            folder: folder!,
+                            credentials,
+                            multiLingual,
+                            emit: (eventName: string, message: string) => {
+                                dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
+                            },
                         }).then((spec: JsonSpec) => {
-                          dispatch({ type: 'DUMPING_DONE' });
-                          exit();
-                        })
+                            dispatch({ type: 'DUMPING_DONE' });
+                            exit();
+                        });
                     }}
                 />
             )}
