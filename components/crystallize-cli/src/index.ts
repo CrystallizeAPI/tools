@@ -51,6 +51,11 @@ const cli = meow(helpText, {
             alias: 'b',
             default: false,
         },
+        multiLingual: {
+            type: 'boolean',
+            alias: 'm',
+            default: false,
+        },
     },
 });
 

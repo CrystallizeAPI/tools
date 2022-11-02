@@ -9,7 +9,7 @@ import { Messages } from '../../components/Messages.js';
 import { SetupCredentials } from '../../components/SetupCredentials.js';
 import { Spinner } from '../../components/Spinner.js';
 import createTenant from '../../use-cases/createTenant.js';
-import importTentantDump from '../../use-cases/importTentantDump.js';
+import importTenantDump from '../../use-cases/importTentantDump.js';
 import { fetchAvailableTenantIdentifier } from '../../utils/crystallize.js';
 import { Status } from '../install-boilerplate/context/types.js';
 import { State, Reducer } from './reducer.js';
@@ -18,7 +18,8 @@ export const ImportTenantDumpJourney: React.FC<{
     specFilePath: string;
     tenantIdentifier: string;
     isVerbose?: boolean;
-}> = ({ specFilePath, tenantIdentifier, isVerbose = false }) => {
+    multiLingual?: boolean;
+}> = ({ specFilePath, tenantIdentifier, multiLingual = false }) => {
     const { exit } = useApp();
 
     const [status, setStatus] = useState<Status | null>(null);
@@ -46,18 +47,19 @@ export const ImportTenantDumpJourney: React.FC<{
                                 });
                                 createTenant(newTenant, credentials).then(() => {
                                     dispatch({ type: 'IMPORT_STARTED' });
-                                    importTentantDump(
-                                        newTenant.identifier,
-                                        specFilePath,
-                                        credentials,
-                                        (eventName: string, message: string | any) => {
-                                            if (eventName === EVENT_NAMES.STATUS_UPDATE) {
-                                                setStatus(message);
-                                                return;
-                                            }
-                                            dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
-                                        },
-                                    ).then(() => {
+                                    importTenantDump({
+                                      tenantIdentifier: newTenant.identifier,
+                                      specFilePath,
+                                      credentials,
+                                      multiLingual,
+                                      emit: (eventName: string, message: string | any) => {
+                                        if (eventName === EVENT_NAMES.STATUS_UPDATE) {
+                                          setStatus(message);
+                                          return;
+                                        }
+                                        dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
+                                      },
+                                    }).then(() => {
                                         dispatch({ type: 'IMPORT_DONE' });
                                         exit();
                                     });

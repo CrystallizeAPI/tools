@@ -2,15 +2,24 @@ import { Bootstrapper, EVENT_NAMES, JsonSpec } from '@crystallize/import-utiliti
 import { PimCredentials } from '../../types.js';
 import { loadJSON } from '../utils/fs-utils.js';
 
-export default async (
-    tenantIdentifier: string,
-    specFilePath: string,
-    credentials: PimCredentials,
-    emit: (eventName: string, message: string) => void,
-): Promise<void> => {
+type Props = {
+  tenantIdentifier: string;
+  specFilePath: string,
+  credentials: PimCredentials,
+  emit: (eventName: string, message: string) => void,
+  multiLingual?: boolean;
+}
+export default async ({
+    tenantIdentifier,
+    specFilePath,
+    credentials,
+    emit,
+    multiLingual = false,
+}: Props): Promise<void> => {
     const spec: JsonSpec = await loadJSON(specFilePath);
     const bootstrapper = new Bootstrapper();
     bootstrapper.setTenantIdentifier(tenantIdentifier);
+    bootstrapper.config.multilingual = multiLingual
     bootstrapper.setAccessToken(credentials.ACCESS_TOKEN_ID, credentials.ACCESS_TOKEN_SECRET);
     bootstrapper.on(EVENT_NAMES.ERROR, (status) => {
         try {
