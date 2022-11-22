@@ -12,6 +12,7 @@ export default async (args: string[], flags: any): Promise<number> => {
     const tenantIdentifier = args[1] || '';
     const isVerbose = flags.verbose;
     const isInteractive = flags.interactive;
+    const multiLingual = flags.multiLingual;
 
     await createFolderOrFail(folder, 'Please provide a folder to dump the tenant into.');
 
@@ -22,8 +23,14 @@ export default async (args: string[], flags: any): Promise<number> => {
     if (!isInteractive) {
         const credentials = await getCredentialsOrFail();
         output.log(styles.info(`Dumping tenant ${styles.highlight(tenantIdentifier)} ...`));
-        await dumpTenant(tenantIdentifier, folder!, credentials, (eventName: string, message: string) => {
-            output.log(eventName, message);
+        await dumpTenant({
+            tenantIdentifier,
+            folder,
+            credentials,
+            multiLingual,
+            emit: (eventName: string, message: string) => {
+                output.log(eventName, message);
+            },
         });
         output.log(styles.info('Tenant dumped.'));
         return 0;
@@ -37,7 +44,12 @@ export default async (args: string[], flags: any): Promise<number> => {
                         Let's dump the tenant <Text color={colors.highlight}>{tenantIdentifier}</Text>
                         <Newline />
                     </Text>
-                    <DumpTenantJourney folder={folder} tenantIdentifier={tenantIdentifier} isVerbose={isVerbose} />
+                    <DumpTenantJourney
+                        folder={folder}
+                        multiLingual={multiLingual}
+                        tenantIdentifier={tenantIdentifier}
+                        isVerbose={isVerbose}
+                    />
                 </Box>
             </Box>
         </>,

@@ -26,7 +26,8 @@ export const DumpTenantJourney: React.FC<{
     folder: string;
     tenantIdentifier: string;
     isVerbose?: boolean;
-}> = ({ folder, tenantIdentifier, isVerbose = false }) => {
+    multiLingual?: boolean;
+}> = ({ folder, tenantIdentifier, multiLingual = false }) => {
     const { exit } = useApp();
     const [state, dispatch] = useReducer(Reducer, {
         isDumping: false,
@@ -53,8 +54,14 @@ export const DumpTenantJourney: React.FC<{
                 <SetupCredentials
                     dispatch={(user: PimAuthenticatedUser, credentials: PimCredentials) => {
                         dispatch({ type: 'DUMPING_STARTED' });
-                        dumpTenant(tenantIdentifier, folder!, credentials, (eventName: string, message: string) => {
-                            dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
+                        dumpTenant({
+                            tenantIdentifier,
+                            folder: folder!,
+                            credentials,
+                            multiLingual,
+                            emit: (eventName: string, message: string) => {
+                                dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
+                            },
                         }).then((spec: JsonSpec) => {
                             dispatch({ type: 'DUMPING_DONE' });
                             exit();

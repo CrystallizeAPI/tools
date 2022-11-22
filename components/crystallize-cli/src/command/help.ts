@@ -13,6 +13,7 @@ Options
     --bootstrap-tenant, -b Bootstrap tenant (default: false)
     --verbose, -v Verbose output (defaut: false)
     --interactive, -i Interactive mode (default: true)
+    --multi-lingual, -m Multi lingual mode (default: false)
 
 Examples
     $ @crystallize/cli install ~/my-projects/my-ecommerce
