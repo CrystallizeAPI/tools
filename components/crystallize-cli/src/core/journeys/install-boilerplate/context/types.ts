@@ -5,6 +5,7 @@ export type Action =
     | { type: 'SET_TENANT'; item: Tenant }
     | { type: 'CHANGE_TENANT'; item: Tenant }
     | { type: 'BOILERPLATE_DOWNLOADED' }
+    | { type: 'SET_BOOTSTRAP_TENANT' }
     | { type: 'SET_CREDENTIALS'; credentials: PimCredentials }
     | { type: 'RECIPES_DONE'; readme: string }
     | { type: 'ADD_MESSAGE'; message: string }
@@ -16,6 +17,7 @@ export type Actions = {
     boilerplateDownloaded: () => void;
     recipesDone: (readme: string) => void;
     setCredentials: (credentials: PimCredentials) => void;
+    setBootstrapTenant: () => void;
     changeTenant: (tenant: Tenant) => void;
     startImport: () => void;
     addMessage: (message: string) => void;
