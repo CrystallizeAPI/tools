@@ -1,4 +1,4 @@
-# Crystlallize CLI
+# Crystallize CLI
 
 ---
 
