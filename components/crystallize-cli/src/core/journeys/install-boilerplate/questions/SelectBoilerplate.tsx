@@ -27,6 +27,8 @@ export const SelectBoilerplate: React.FC = () => {
                 />
             )}
 
+            {!state.boilerplate && <Text>New Next 13 boilerplate coming soon!</Text>}
+
             {state.boilerplate && (
                 <Text>
                     You are going to install the <Text color={colors.highlight}>{state.boilerplate.name}</Text>{' '}

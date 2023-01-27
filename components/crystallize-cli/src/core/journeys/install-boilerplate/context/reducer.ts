@@ -68,6 +68,12 @@ export function Reducer(state: State, action: Action): State {
                     messages: [...state.messages, `${action.message}`],
                 };
             }
+            case 'SET_BOOTSTRAP_TENANT': {
+                return {
+                    ...state,
+                    bootstrapTenant: true,
+                };
+            }
             default: {
                 throw new Error('AppContext - Unhandled action type');
             }
@@ -84,6 +90,7 @@ export function mapToReducerActions(dispatch: Dispatch): Actions {
     return {
         setBoilerplate: (item: Boilerplate) => dispatch({ type: 'SET_BOILERPLATE', item }),
         setTenant: (item: Tenant) => dispatch({ type: 'SET_TENANT', item }),
+        setBootstrapTenant: () => dispatch({ type: 'SET_BOOTSTRAP_TENANT' }),
         boilerplateDownloaded: () => dispatch({ type: 'BOILERPLATE_DOWNLOADED' }),
         recipesDone: (readme: string) => dispatch({ type: 'RECIPES_DONE', readme }),
         setCredentials: (credentials: PimCredentials) => dispatch({ type: 'SET_CREDENTIALS', credentials }),

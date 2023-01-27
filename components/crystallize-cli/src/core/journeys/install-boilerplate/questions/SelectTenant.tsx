@@ -25,12 +25,17 @@ export const SelectTenant: React.FC = () => {
                         </Text>
                     </Text>
 
-                    <Select<Tenant>
+                    <Select<
+                        Tenant & {
+                            boostrap: boolean;
+                        }
+                    >
                         options={[
                             {
                                 label: 'Our demo tenant',
                                 value: {
                                     identifier: state.boilerplate?.blueprint!,
+                                    boostrap: false,
                                 },
                                 render: () => (
                                     <>
@@ -41,23 +46,52 @@ export const SelectTenant: React.FC = () => {
                                 ),
                             },
                             {
-                                label: 'My own tenant',
+                                label: 'My own existing tenant',
                                 value: {
                                     identifier: '',
+                                    boostrap: false,
                                 },
                                 render: () => (
                                     <>
-                                        <Text>My own tenant</Text>
+                                        <Text>My own existing tenant</Text>
                                         <Newline />
+                                        <Text dimColor>
+                                            Of course your tenant content model (shapes, items) must fit the
+                                            boilerplate.
+                                        </Text>
+                                    </>
+                                ),
+                            },
+                            {
+                                label: 'Create a new tenant for me',
+                                value: {
+                                    identifier: '',
+                                    boostrap: true,
+                                },
+                                render: () => (
+                                    <>
+                                        <Text>Create a new tenant for me</Text>
+                                        <Newline />
+                                        <Text dimColor>
+                                            A tenant will be bootstrapped for you with boilerplate content. (same as
+                                            `install -b`)
+                                        </Text>
                                     </>
                                 ),
                             },
                         ]}
-                        onSelect={(tenant: Tenant) => {
-                            if (tenant.identifier === '') {
+                        onSelect={(
+                            answer: Tenant & {
+                                boostrap: boolean;
+                            },
+                        ) => {
+                            if (answer.identifier === '') {
+                                if (answer.boostrap === true) {
+                                    dispatch.setBootstrapTenant();
+                                }
                                 askForInput(true);
                             } else {
-                                dispatch.setTenant(tenant);
+                                dispatch.setTenant(answer);
                             }
                         }}
                     />
