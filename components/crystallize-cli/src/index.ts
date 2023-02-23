@@ -53,8 +53,15 @@ const cli = meow(helpText, {
         },
         multiLingual: {
             type: 'boolean',
-            alias: 'm',
-            default: false,
+            default: true,
+        },
+        excludeOrders: {
+            type: 'boolean',
+            default: true,
+        },
+        excludeCustomers: {
+            type: 'boolean',
+            default: true,
         },
     },
 });

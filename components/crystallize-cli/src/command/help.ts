@@ -13,7 +13,9 @@ Options
     --bootstrap-tenant, -b Bootstrap tenant (default: false)
     --verbose, -v Verbose output (defaut: false)
     --interactive, -i Interactive mode (default: true)
-    --multi-lingual, -m Multi lingual mode (default: false)
+    --multi-lingual, Multilingual dump and import mode (default: true)
+    --exclude-orders, Exclude orders in dump (default: true)
+    --exclude-customers, Exclude customers in dump (default: true)
 
 Examples
     $ @crystallize/cli install ~/my-projects/my-ecommerce

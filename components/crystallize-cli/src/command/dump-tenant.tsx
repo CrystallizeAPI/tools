@@ -1,3 +1,4 @@
+import { createSpecDefaults } from '@crystallize/import-utilities/dist/bootstrap-tenant/bootstrapper/index.js';
 import { Box, Newline, render, Text } from 'ink';
 import React from 'react';
 import { colors } from '../config/colors.js';
@@ -13,6 +14,8 @@ export default async (args: string[], flags: any): Promise<number> => {
     const isVerbose = flags.verbose;
     const isInteractive = flags.interactive;
     const multiLingual = flags.multiLingual;
+    const excludeOrders = flags.excludeOrders;
+    const excludeCustomers = flags.excludeCustomers;
 
     await createFolderOrFail(folder, 'Please provide a folder to dump the tenant into.');
 
@@ -30,6 +33,11 @@ export default async (args: string[], flags: any): Promise<number> => {
             multiLingual,
             emit: (eventName: string, message: string) => {
                 output.log(eventName, message);
+            },
+            specOptions: {
+                ...createSpecDefaults,
+                orders: !excludeOrders,
+                customers: !excludeCustomers,
             },
         });
         output.log(styles.info('Tenant dumped.'));
@@ -49,6 +57,8 @@ export default async (args: string[], flags: any): Promise<number> => {
                         multiLingual={multiLingual}
                         tenantIdentifier={tenantIdentifier}
                         isVerbose={isVerbose}
+                        excludeOrders={excludeOrders}
+                        excludeCustomers={excludeCustomers}
                     />
                 </Box>
             </Box>

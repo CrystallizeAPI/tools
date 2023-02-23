@@ -1,4 +1,5 @@
 import { JsonSpec } from '@crystallize/import-utilities';
+import { createSpecDefaults } from '@crystallize/import-utilities/dist/bootstrap-tenant/bootstrapper/index.js';
 import { Text, useApp } from 'ink';
 import React, { useEffect, useReducer } from 'react';
 import { PimAuthenticatedUser, PimCredentials } from '../../../types.js';
@@ -27,7 +28,9 @@ export const DumpTenantJourney: React.FC<{
     tenantIdentifier: string;
     isVerbose?: boolean;
     multiLingual?: boolean;
-}> = ({ folder, tenantIdentifier, multiLingual = false }) => {
+    excludeOrders?: boolean;
+    excludeCustomers?: boolean;
+}> = ({ folder, tenantIdentifier, multiLingual = true, excludeOrders = true, excludeCustomers = true }) => {
     const { exit } = useApp();
     const [state, dispatch] = useReducer(Reducer, {
         isDumping: false,
@@ -61,6 +64,11 @@ export const DumpTenantJourney: React.FC<{
                             multiLingual,
                             emit: (eventName: string, message: string) => {
                                 dispatch({ type: 'ADD_MESSAGE', message: `${eventName}: ${message}` });
+                            },
+                            specOptions: {
+                                ...createSpecDefaults,
+                                orders: !excludeOrders,
+                                customers: !excludeCustomers,
                             },
                         }).then((spec: JsonSpec) => {
                             dispatch({ type: 'DUMPING_DONE' });
