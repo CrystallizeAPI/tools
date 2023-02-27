@@ -372,9 +372,9 @@
     xml-js "^1.6.11"
 
 "@crystallize/js-api-client@*", "@crystallize/js-api-client@^1.3.1", "@crystallize/js-api-client@^1.9.1":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.9.1.tgz#2b19028e6faaf1a2c3f44a1d8866ffd4358ae944"
-  integrity sha512-wLQ+57WWYPqen19q89BWmU6TESgnPyrPly7wnSxlGZxmI9Mf/MaQ9Y3AwjbPqKRwgKOm0jz07/zAh2vNxxLYrQ==
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.12.0.tgz#274a8f237a6c8444714c9ea5dbdef84bdb3bd3db"
+  integrity sha512-79SsWQYpqwVBKZpQO8XxedU3Z/ebJpVdHb3bjfm/8dAExLeLTfA1/OTv++BpWdONb/d2/o38/3U1AEd/J3u1kQ==
   dependencies:
     dotenv "^16.0.0"
     json-to-graphql-query "^2.2.4"
