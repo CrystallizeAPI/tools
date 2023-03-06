@@ -345,9 +345,9 @@
     "@crystallize/schema" "^0.0.1-14"
 
 "@crystallize/import-utilities@^1.19.4":
-  version "1.19.4"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.19.4.tgz#9ac0aecead57c153ee81d37c3b2d64f00963561b"
-  integrity sha512-tbwx5ofafrIZdrKoKSX9hSh45dVDyoOPkqPN+XBS2SdIoRlIguT+2WmXBJuVKHIR+81rxos260LCyJY+RChoOQ==
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.20.2.tgz#ee2d8a4670973abc2c04cff7e365e295c4f94054"
+  integrity sha512-MDgUWkXcg0zevQIy0rRkHabfpQrPnhszC7aGtc5xqL+82fs8za/CTOwufUNfsIRYAlhtQD3uw+rShwup7vb1cQ==
   dependencies:
     "@crystallize/content-transformer" "^9.1.2"
     "@crystallize/import-export-sdk" "^0.0.1-9"
