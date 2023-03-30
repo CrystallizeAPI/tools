@@ -45,7 +45,7 @@
         "bump": "yarn tsc && yarn version --no-git-tag-version --new-version"
     },
     "dependencies": {
-        "@crystallize/import-utilities": "^1.19.4",
+        "@crystallize/import-utilities": "^1.24.3",
         "@crystallize/js-api-client": "^1.9.1",
         "chalk": "^5.2",
         "cli-spinners": "^2.7.0",
