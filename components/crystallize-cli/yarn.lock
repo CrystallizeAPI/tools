@@ -336,23 +336,23 @@
     ow "^0.4.0"
     parse5 "^6.0.1"
 
-"@crystallize/import-export-sdk@^0.0.1-9":
-  version "0.0.1-9"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-export-sdk/-/import-export-sdk-0.0.1-9.tgz#ef1e3b6c872ed415d12ed836fc33579fbca46f90"
-  integrity sha512-aXUlIhm1eMHxORCgyCnushrs6oupwDbADo4mBMEZVTc8jweTJDPfWWTKXZW9CyM6pRUBNhmZnYJO3VMXChfrrQ==
+"@crystallize/import-export-sdk@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-export-sdk/-/import-export-sdk-0.0.1.tgz#4242923c5bb0e403ab7dcc07ff0a446007a3ead0"
+  integrity sha512-pwPhcH7GncTEJG1WQ05uSBFdljhBY+90Q3W/YIdTp/w0gwH88pDbDjYJdxO/MrQ4xZRmB71wEw2qla9TTbQbbA==
   dependencies:
     "@crystallize/js-api-client" "*"
-    "@crystallize/schema" "^0.0.1-14"
+    "@crystallize/schema" "*"
 
-"@crystallize/import-utilities@^1.19.4":
-  version "1.19.4"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.19.4.tgz#9ac0aecead57c153ee81d37c3b2d64f00963561b"
-  integrity sha512-tbwx5ofafrIZdrKoKSX9hSh45dVDyoOPkqPN+XBS2SdIoRlIguT+2WmXBJuVKHIR+81rxos260LCyJY+RChoOQ==
+"@crystallize/import-utilities@^1.24.3":
+  version "1.24.3"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.24.3.tgz#0095701ea39987f511e4082e495d2861d6e1a5e3"
+  integrity sha512-q3/1H9dXN10wWVlhjnxlGxDBpfvijoydmMKxP1Z7sgyUDTR/gGbJcT0j0Y/3BzQjnFqXaD/tHpTSSGWcwz6dtQ==
   dependencies:
     "@crystallize/content-transformer" "^9.1.2"
-    "@crystallize/import-export-sdk" "^0.0.1-9"
+    "@crystallize/import-export-sdk" "^0.0.1"
     "@crystallize/js-api-client" "^1.3.1"
-    "@crystallize/schema" "^0.0.1-14"
+    "@crystallize/schema" "^0.0.4"
     dotenv "^10.0.0"
     download "^8.0.0"
     duration "^0.2.2"
@@ -383,10 +383,15 @@
     typescript "^4.6.3"
     zod "^3.14.3"
 
-"@crystallize/schema@^0.0.1-14":
-  version "0.0.1-14"
-  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.0.1-14.tgz#ab9389dac0091aa2b629658a9fd08d2d6ae0dbc5"
-  integrity sha512-9UB6xMlTN6vX9xXToWdWxPP+UhvkqQYL0vyMmImC0Ddqf4i62RbJiSSOvL+vuBWjkYVRk7FjXLzb1iz8YySa6A==
+"@crystallize/schema@*":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.0.5.tgz#8e10536c90f73dd902f19e924c7c3c901517c49e"
+  integrity sha512-+6c9NZvyLd34xRZNDx3WLaaGSa/vIdkCR8tioj255Il/ub9t1z41YqmJbzP7ttHaI+TqNz040uOOR7Wz9WHFjQ==
+
+"@crystallize/schema@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.0.4.tgz#5b3abf7f9f79b656bfd41bf18efcefa811d50d8d"
+  integrity sha512-FsrGDh0Fh6dAh/UUWQGvf3IDnJ8j1pkx6uPAhOTGnAD8dZA7DXVNMxSh4K6/C3/6BJrKoiH2qfWPdczBifx1hw==
   dependencies:
     zod "^3.17.9"
 
@@ -3868,10 +3873,15 @@ type@^2.7.2:
   resolved "https://registry.yarnpkg.com/type/-/type-2.7.2.tgz#2376a15a3a28b1efa0f5350dcf72d24df6ef98d0"
   integrity sha512-dzlvlNlt6AXU7EBSfpAscydQ7gXB+pPGsPnfJnZpiNJBDj7IaJzQlBZYGdEi4R9HmPdBv2XmWJ6YUtoTa7lmCw==
 
-typescript@^4.6.3, typescript@^4.9.4:
+typescript@^4.6.3:
   version "4.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+
+typescript@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
+  integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
 
 unbzip2-stream@^1.0.9:
   version "1.4.3"
