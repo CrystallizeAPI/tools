@@ -326,7 +326,7 @@
   dependencies:
     chalk "^4.1.0"
 
-"@crystallize/content-transformer@^9.1.2":
+"@crystallize/content-transformer@^9.2.0":
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/@crystallize/content-transformer/-/content-transformer-9.2.0.tgz#352f76a1dd36034f8b839b1b9e356d9d08b84f28"
   integrity sha512-5kVATtXSAUSXAPS54xylaUbdkrBVxE3et/c4v9eCuod08e1yxYQZ7tQOIA9BsIJrIPqFntgPP8BiR11lP3rmyA==
@@ -336,23 +336,23 @@
     ow "^0.4.0"
     parse5 "^6.0.1"
 
-"@crystallize/import-export-sdk@^0.0.1-9":
-  version "0.0.1-9"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-export-sdk/-/import-export-sdk-0.0.1-9.tgz#ef1e3b6c872ed415d12ed836fc33579fbca46f90"
-  integrity sha512-aXUlIhm1eMHxORCgyCnushrs6oupwDbADo4mBMEZVTc8jweTJDPfWWTKXZW9CyM6pRUBNhmZnYJO3VMXChfrrQ==
+"@crystallize/import-export-sdk@^0.1.2":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-export-sdk/-/import-export-sdk-0.1.4.tgz#fbd9e679ba11423cd99f66d122fd00a11435589a"
+  integrity sha512-2UM1TwcSePzEZd9acBydmKOrXdRV66GFBCINKv/u8jHmepMIsu8Pzg0yz442waumpcTPhzCz/zQCqBOIwOTNEw==
   dependencies:
     "@crystallize/js-api-client" "*"
-    "@crystallize/schema" "^0.0.1-14"
+    "@crystallize/schema" "*"
 
-"@crystallize/import-utilities@^1.19.4":
-  version "1.19.4"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.19.4.tgz#9ac0aecead57c153ee81d37c3b2d64f00963561b"
-  integrity sha512-tbwx5ofafrIZdrKoKSX9hSh45dVDyoOPkqPN+XBS2SdIoRlIguT+2WmXBJuVKHIR+81rxos260LCyJY+RChoOQ==
+"@crystallize/import-utilities@^1.26":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.26.0.tgz#f97cde2624a600e843e6e4e4b66e58e2c22bc9e2"
+  integrity sha512-j6APllKYpcGWtBUUHTJuV52dQAArP3+bra/vjMq3zKnlnucpSeWf1h8JjdsjCWvwBS/pw3t7B218yRpg0/8f7w==
   dependencies:
-    "@crystallize/content-transformer" "^9.1.2"
-    "@crystallize/import-export-sdk" "^0.0.1-9"
-    "@crystallize/js-api-client" "^1.3.1"
-    "@crystallize/schema" "^0.0.1-14"
+    "@crystallize/content-transformer" "^9.2.0"
+    "@crystallize/import-export-sdk" "^0.1.2"
+    "@crystallize/js-api-client" "^1.12.0"
+    "@crystallize/schema" "^0.1.2"
     dotenv "^10.0.0"
     download "^8.0.0"
     duration "^0.2.2"
@@ -371,7 +371,7 @@
     uuid "^8.3.2"
     xml-js "^1.6.11"
 
-"@crystallize/js-api-client@*", "@crystallize/js-api-client@^1.3.1", "@crystallize/js-api-client@^1.9.1":
+"@crystallize/js-api-client@*":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.9.1.tgz#2b19028e6faaf1a2c3f44a1d8866ffd4358ae944"
   integrity sha512-wLQ+57WWYPqen19q89BWmU6TESgnPyrPly7wnSxlGZxmI9Mf/MaQ9Y3AwjbPqKRwgKOm0jz07/zAh2vNxxLYrQ==
@@ -383,12 +383,31 @@
     typescript "^4.6.3"
     zod "^3.14.3"
 
-"@crystallize/schema@^0.0.1-14":
-  version "0.0.1-14"
-  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.0.1-14.tgz#ab9389dac0091aa2b629658a9fd08d2d6ae0dbc5"
-  integrity sha512-9UB6xMlTN6vX9xXToWdWxPP+UhvkqQYL0vyMmImC0Ddqf4i62RbJiSSOvL+vuBWjkYVRk7FjXLzb1iz8YySa6A==
+"@crystallize/js-api-client@^1.12.0", "@crystallize/js-api-client@^1.12.2":
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.12.2.tgz#5606025a042b9fc323b53f841cf59eec00b9c205"
+  integrity sha512-6PfW0yn5RnawE3u59nogyVEHb157+vut81m8G6+LSfuRapQelRj8h0Ycm8LgDzxq/vA0IAG0nYtt4ngfEGDfwA==
   dependencies:
-    zod "^3.17.9"
+    dotenv "^16.0.0"
+    json-to-graphql-query "^2.2.4"
+    node-fetch "^2"
+    tiny-invariant "^1.2.0"
+    typescript "^4.6.3"
+    zod "^3.14.3"
+
+"@crystallize/schema@*":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.2.0.tgz#70c289d0c3598fc3ceeb3cb6b20d937163ab0c48"
+  integrity sha512-ABpyH2D4tK7iB4N0jFeOMuK6KawZnr7P7fsQGa3tcZQ5clc6e+b1kJ1LHkFxrCl+gjFZYkJH5UmqXqVOoehpxA==
+  dependencies:
+    zod "^3.21.4"
+
+"@crystallize/schema@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.1.2.tgz#7fb2614c0cef8fd887e451df3d28eac48b13bef6"
+  integrity sha512-tGs4WThNwvfwO/h5aMdytS/KPG0prFrcrfEGmY6Dg1AKzu3u51Wjeysw6oBDeA9iwfjKE04l/Oju5oQSqSm7AQ==
+  dependencies:
+    zod "^3.21.4"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -4080,7 +4099,12 @@ yoga-layout-prebuilt@^1.9.6:
   dependencies:
     "@types/yoga-layout" "1.9.2"
 
-zod@^3.14.3, zod@^3.17.9:
+zod@^3.14.3:
   version "3.20.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.6.tgz#2f2f08ff81291d47d99e86140fedb4e0db08361a"
   integrity sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==
+
+zod@^3.21.4:
+  version "3.21.4"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.21.4.tgz#10882231d992519f0a10b5dd58a38c9dabbb64db"
+  integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
