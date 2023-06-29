@@ -344,15 +344,15 @@
     "@crystallize/js-api-client" "*"
     "@crystallize/schema" "*"
 
-"@crystallize/import-utilities@^1.26":
-  version "1.26.0"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.26.0.tgz#f97cde2624a600e843e6e4e4b66e58e2c22bc9e2"
-  integrity sha512-j6APllKYpcGWtBUUHTJuV52dQAArP3+bra/vjMq3zKnlnucpSeWf1h8JjdsjCWvwBS/pw3t7B218yRpg0/8f7w==
+"@crystallize/import-utilities@^1.27":
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.27.0.tgz#d1e944c47ccf7ce965f1fe427fbf73a6001fdbb3"
+  integrity sha512-xL10QBdroOFTWiNFo9xyNo0XEsD3zLS+tL8sRMXKPB+kbPfLyDJOuZ4V3LAXFXYLz5xJSkL11QpYod6Vbj8MWQ==
   dependencies:
     "@crystallize/content-transformer" "^9.2.0"
     "@crystallize/import-export-sdk" "^0.1.2"
-    "@crystallize/js-api-client" "^1.12.0"
-    "@crystallize/schema" "^0.1.2"
+    "@crystallize/js-api-client" "^1.12.2"
+    "@crystallize/schema" "^0.2.0"
     dotenv "^10.0.0"
     download "^8.0.0"
     duration "^0.2.2"
@@ -383,7 +383,7 @@
     typescript "^4.6.3"
     zod "^3.14.3"
 
-"@crystallize/js-api-client@^1.12.0", "@crystallize/js-api-client@^1.12.2":
+"@crystallize/js-api-client@^1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@crystallize/js-api-client/-/js-api-client-1.12.2.tgz#5606025a042b9fc323b53f841cf59eec00b9c205"
   integrity sha512-6PfW0yn5RnawE3u59nogyVEHb157+vut81m8G6+LSfuRapQelRj8h0Ycm8LgDzxq/vA0IAG0nYtt4ngfEGDfwA==
@@ -395,17 +395,10 @@
     typescript "^4.6.3"
     zod "^3.14.3"
 
-"@crystallize/schema@*":
+"@crystallize/schema@*", "@crystallize/schema@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.2.0.tgz#70c289d0c3598fc3ceeb3cb6b20d937163ab0c48"
   integrity sha512-ABpyH2D4tK7iB4N0jFeOMuK6KawZnr7P7fsQGa3tcZQ5clc6e+b1kJ1LHkFxrCl+gjFZYkJH5UmqXqVOoehpxA==
-  dependencies:
-    zod "^3.21.4"
-
-"@crystallize/schema@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@crystallize/schema/-/schema-0.1.2.tgz#7fb2614c0cef8fd887e451df3d28eac48b13bef6"
-  integrity sha512-tGs4WThNwvfwO/h5aMdytS/KPG0prFrcrfEGmY6Dg1AKzu3u51Wjeysw6oBDeA9iwfjKE04l/Oju5oQSqSm7AQ==
   dependencies:
     zod "^3.21.4"
 
