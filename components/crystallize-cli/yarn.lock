@@ -344,10 +344,10 @@
     "@crystallize/js-api-client" "*"
     "@crystallize/schema" "*"
 
-"@crystallize/import-utilities@^1.28":
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.28.0.tgz#0a8e30472ed510f3cd312ddffa6c8e9d8088b503"
-  integrity sha512-Qc7P89m6CaShUzCKvZ0uNHQ/diiRRHumm7N9KkZn4ltvmKo11K6z6AqBoSGHw+y+IEeXLEdzRZ/qvG6dvE2w1A==
+"@crystallize/import-utilities@^1.28.5":
+  version "1.28.5"
+  resolved "https://registry.yarnpkg.com/@crystallize/import-utilities/-/import-utilities-1.28.5.tgz#cf60da97276c0bac73d11ab5eaaca58afbc827fd"
+  integrity sha512-u++AsfV3vSvSg1YEMHs2VPqOKFPCQhBFnvJGkfqM9mguO+SKrm18I9AVu6UobmZHyn8Mpmk29J+RJY0k9HNzYQ==
   dependencies:
     "@crystallize/content-transformer" "^9.2.0"
     "@crystallize/import-export-sdk" "^0.1.4"
