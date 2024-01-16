@@ -23,7 +23,7 @@ export const boilerplates: Boilerplate[] = [
         identifier: 'product-configurator',
         name: 'Next.js Product Configurator',
         baseline: 'Product Configurator boilerplate using Next.js',
-        description: 'Fully featured Ecommerce product configurator with basket & checkout.',
+        description: 'Ecommerce product configurator with basket & checkout.',
         demo: 'https://product-configurator.superfast.shop/',
         blueprint: 'product-configurator',
         git: 'https://github.com/CrystallizeAPI/product-configurator',
