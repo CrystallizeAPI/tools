@@ -28,4 +28,13 @@ export const boilerplates: Boilerplate[] = [
         blueprint: 'product-configurator',
         git: 'https://github.com/CrystallizeAPI/product-configurator',
     },
+    {
+        identifier: 'dounut-svelte',
+        name: 'Dounut Svelte',
+        baseline: 'Ecommerce boilerplate using SvelteKit',
+        description: 'Minimal eCommerce boilerplate built using SvelteKit, Houdini, Tailwind and Crystallize.',
+        demo: 'https://dounut-svelte.vercel.app/',
+        blueprint: 'dounot',
+        git: 'https://github.com/CrystallizeAPI/dounut-svelte',
+    },
 ];
