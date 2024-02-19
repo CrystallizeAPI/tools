@@ -37,4 +37,13 @@ export const boilerplates: Boilerplate[] = [
         blueprint: 'dounot',
         git: 'https://github.com/CrystallizeAPI/dounut-svelte',
     },
+    {
+        identifier: 'dounut-astro',
+        name: 'Dounut Astro',
+        baseline: 'Ecommerce boilerplate using Astro',
+        description: 'Minimal eCommerce boilerplate built using Astro, Tailwind and Crystallize.',
+        demo: 'https://dounut-astro.vercel.app/',
+        blueprint: 'dounot',
+        git: 'https://github.com/CrystallizeAPI/dounut-astro.git',
+    },
 ];
