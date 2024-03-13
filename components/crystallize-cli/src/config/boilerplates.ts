@@ -44,6 +44,6 @@ export const boilerplates: Boilerplate[] = [
         description: 'Minimal eCommerce boilerplate built using Astro, Tailwind and Crystallize.',
         demo: 'https://dounut-astro.vercel.app/',
         blueprint: 'dounot',
-        git: 'https://github.com/CrystallizeAPI/dounut-astro.git',
+        git: 'https://github.com/CrystallizeAPI/dounut-astro',
     },
 ];
