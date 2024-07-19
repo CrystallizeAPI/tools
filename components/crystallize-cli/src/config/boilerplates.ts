@@ -29,6 +29,15 @@ export const boilerplates: Boilerplate[] = [
         git: 'https://github.com/CrystallizeAPI/product-configurator',
     },
     {
+        identifier: 'dounut-remix',
+        name: 'Dounut Remix',
+        baseline: 'Ecommerce boilerplate using Remix',
+        description: 'Minimal eCommerce boilerplate built using Remix, Tailwind, and Crystallize.',
+        demo: 'https://dounot.milliseconds.live/',
+        blueprint: 'dounot',
+        git: 'https://github.com/CrystallizeAPI/product-storytelling-examples',
+    },
+    {
         identifier: 'dounut-svelte',
         name: 'Dounut Svelte',
         baseline: 'Ecommerce boilerplate using SvelteKit',
@@ -45,5 +54,14 @@ export const boilerplates: Boilerplate[] = [
         demo: 'https://dounut-astro.vercel.app/',
         blueprint: 'dounot',
         git: 'https://github.com/CrystallizeAPI/dounut-astro',
+    },
+    {
+        identifier: 'conference',
+        name: 'Conference Next.js',
+        baseline: 'Conference website using Next.js',
+        description: 'Conference website boilerplate using Next.js and Crystallize.',
+        demo: 'https://conference.superfast.shop/',
+        blueprint: 'conference-boilerplate',
+        git: 'https://github.com/CrystallizeAPI/conference-boilerplate',
     },
 ];
