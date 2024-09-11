@@ -1,6 +1,6 @@
 {
     "name": "@crystallize/cli-next",
-    "version": "4.18.0",
+    "version": "4.19.0",
     "description": "Crystallize CLI",
     "main": "./build/index.js",
     "repository": "https://github.com/CrystallizeAPI/crystallize-cli-next",
@@ -46,8 +46,8 @@
         "bump": "yarn tsc && yarn version --no-git-tag-version --new-version"
     },
     "dependencies": {
-        "@crystallize/import-utilities": "^1.28",
-        "@crystallize/js-api-client": "^1.12.2",
+        "@crystallize/import-utilities": "^1.33",
+        "@crystallize/js-api-client": "^3.2.0",
         "chalk": "^5.2",
         "cli-spinners": "^2.7.0",
         "dotenv": "^16.0.3",

@@ -6,6 +6,9 @@ import { isFileExists, loadJSON, makeDirectory, removeFile, saveFile } from './f
 const PIM_CREDENTIALS_PATH = `${os.homedir()}/.crystallize/credentials.json`;
 
 export async function hasCredentials(): Promise<boolean> {
+    if (process.env.CRYSTALLIZE_ACCESS_TOKEN_ID && process.env.CRYSTALLIZE_ACCESS_TOKEN_SECRET) {
+        return true;
+    }
     const home = os.homedir();
     makeDirectory(`${home}/.crystallize`);
     if (!isFileExists(PIM_CREDENTIALS_PATH)) {
@@ -20,6 +23,12 @@ export async function hasCredentials(): Promise<boolean> {
 }
 
 export async function getCredentials(): Promise<PimCredentials> {
+    if (process.env.CRYSTALLIZE_ACCESS_TOKEN_ID && process.env.CRYSTALLIZE_ACCESS_TOKEN_SECRET) {
+        return {
+            ACCESS_TOKEN_ID: process.env.CRYSTALLIZE_ACCESS_TOKEN_ID,
+            ACCESS_TOKEN_SECRET: process.env.CRYSTALLIZE_ACCESS_TOKEN_SECRET,
+        };
+    }
     return await loadJSON(PIM_CREDENTIALS_PATH);
 }
 
