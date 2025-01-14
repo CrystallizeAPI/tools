@@ -1,4 +1,4 @@
-name: Crystallize CLI
+name: Crystallize CLI (Legacy)
 
 on:
   push:
