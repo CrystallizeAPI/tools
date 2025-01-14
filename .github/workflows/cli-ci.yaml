@@ -1,0 +1,40 @@
+name: Crystallize CLI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-and-test:
+    name: 🏗️ Build and Test
+    runs-on: ubuntu-latest
+    steps:
+        - name: ⬇️ Checkout repo
+          uses: actions/checkout@v4
+          with:
+              fetch-depth: 0
+              fetch-tags: false
+
+        - name: ⎔ Setup bun
+          uses: oven-sh/setup-bun@v2
+          with:
+            bun-version: latest
+
+        - name: 📥 Download deps
+          working-directory: components/cli
+          run: bun install --frozen-lockfile
+
+        - name: 🔍 Valid commit message
+          working-directory: components/cli
+          if: ${{ github.event_name == 'pull_request' }}
+          run: bun commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+        - name: 💄 Prettier
+          working-directory: components/cli
+          run: bun prettier --check .
+
+        - name: 📲 Test the builds
+          working-directory: components/cli
+          run: make build
