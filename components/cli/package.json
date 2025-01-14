@@ -18,7 +18,7 @@
         "@types/bun": "latest",
         "@types/marked": "^6.0.0",
         "@types/marked-terminal": "^6.1.1",
-        "@types/react": "^18",
+        "@types/react": "^19",
         "@types/signale": "^1.4.7",
         "react-devtools-core": "^6.0.1",
         "prettier": "^3.4.2"
