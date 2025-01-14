@@ -10,8 +10,12 @@
             "git": "git@github.com:CrystallizeAPI/crystallize-magento-import.git"
         },
         "crystallize-cli": {
+            "name": "Crystallize CLI (legacy)",
+            "git": "git@github.com:CrystallizeAPI/crystallize-cli.git"
+        },
+        "cli": {
             "name": "Crystallize CLI",
-            "git": "git@github.com:CrystallizeAPI/crystallize-cli-next.git"
+            "git": "git@github.com:CrystallizeAPI/cli.git"
         }
     }
 }
