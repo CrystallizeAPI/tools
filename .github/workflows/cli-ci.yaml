@@ -38,3 +38,11 @@ jobs:
         - name: 📲 Test the builds
           working-directory: components/cli
           run: make build
+
+        - name: 🚀 Sync it!
+          env:
+              MARKDOWN_TO_CRYSTALLIZE_SHARED_KEY: ${{ secrets.MARKDOWN_TO_CRYSTALLIZE_SHARED_KEY }}
+          run: bun apps/doc-2-crystallize.ts components/cli/README.md
+
+
+
