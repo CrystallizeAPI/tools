@@ -21,7 +21,7 @@
         "@types/bun": "latest",
         "@types/marked": "^6.0.0",
         "@types/marked-terminal": "^6.1.1",
-        "@types/react": "^18.3.18",
+        "@types/react": "^19.0.9",
         "@types/signale": "^1.4.7",
         "@types/tabtab": "^3.0.4",
         "prettier": "^3.4.2",
