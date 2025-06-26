@@ -15,7 +15,7 @@ All contributions will happen here:
 
 | Tools                                                                          | Licence(s) |
 | ------------------------------------------------------------------------------ | ---------- |
-| [Crystallize CLI](https://github.com/CrystallizeAPI/crystallize-cli-next)      | ![MIT]     |
+| [Crystallize CLI](https://github.com/CrystallizeAPI/cli)                       | ![MIT]     |
 | [Shopify Migrator](https://github.com/CrystallizeAPI/shopify-migration-script) | ![MIT]     |
 | [Magento Import](https://github.com/CrystallizeAPI/crystallize-magento-import) | ![MIT]     |
 
